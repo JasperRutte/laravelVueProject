@@ -9,7 +9,13 @@ class ArtistInfo extends Model
 {
     use HasFactory;
 
-    protected $fillable = ["id", "naam", "bandleden", "genre", "platenmaatschappijen_id"];
+    protected $fillable = [
+        "id",
+        "naam",
+        "bandleden",
+        "genre",
+        "platenmaatschappijen_id"
+    ];
 
     public function platenmaatschappijen(){
         return $this -> hasOne(Platenmaatschappijen::class, "id", "platenmaatschappijen_id");

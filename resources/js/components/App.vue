@@ -1,61 +1,75 @@
 <template>
-    <nav class="navbar navbar-expand-lg navbar-light bg-dark px-3 py-2">
-        <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link text-light text-decoration-underline" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-light text-decoration-underline" href="#">Alle artiesten</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-light text-decoration-underline" href="#">Voeg artiest toe</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-light text-decoration-underline" href="#">Alle platenmaatschappijen</a>
-            </li>
-            <li class="nav-item" v-if="false" >
-                <a class="nav-link text-light text-decoration-underline" href="#">voeg platenmaatschappij toe</a>
-            </li>
-        </ul>
-    </nav>
 
-<!--    <router-view></router-view>-->
-<!--        <header>-->
-<!--            <div class="px-3 py-2 bg-dark text-white">-->
-<!--                <div class="container">-->
-<!--                        <ul class="nav ">-->
-<!--                            <li>-->
-<!--                                <router-link>Alle artiesten</router-link>-->
-<!--                            </li>-->
-<!--                            <li>-->
-<!--                                <router-link>Voeg artiest toe</router-link>-->
-<!--                            </li>-->
-<!--                            <li>-->
-<!--                                <router-link>Alle platenmaatschappijen</router-link>-->
-<!--                            </li>-->
-<!--                            <li>-->
-<!--                                <router-ling>Voeg platenmaatschappij toe</router-ling>-->
-<!--                            </li>-->
-<!--                        </ul>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </header>-->
-<!--    <p><router-link to->test</router-link></p>-->
+<!--    <nav class="navbar navbar-expand-lg navbar-light bg-dark px-3 py-2">-->
+<!--        <ul class="navbar-nav">-->
+<!--            <li class="nav-item active">-->
+<!--                <a class="nav-link text-light text-decoration-underline" href="#">Home</a>-->
+<!--            </li>-->
+<!--            <li class="nav-item">-->
+<!--                <a class="nav-link text-light text-decoration-underline" href="#">Alle artiesten</a>-->
+<!--            </li>-->
+<!--            <li class="nav-item">-->
+<!--                <a class="nav-link text-light text-decoration-underline" href="#">Voeg artiest toe</a>-->
+<!--            </li>-->
+<!--            <li class="nav-item">-->
+<!--                <a class="nav-link text-light text-decoration-underline" href="#">Alle platenmaatschappijen</a>-->
+<!--            </li>-->
+<!--            <li class="nav-item" v-if="false" >-->
+<!--                <a class="nav-link text-light text-decoration-underline" href="#">voeg platenmaatschappij toe</a>-->
+<!--            </li>-->
+<!--        </ul>-->
+<!--    </nav>-->
 
-<!--        <button type="button" class="btn btn-primary">Primary</button>-->
+    <div>
+        <button class="nav-link text-light" @click="toggleArtistShow">Show Artist</button>
 
-<!--        <div class="card">-->
-<!--            <div class="card-body">-->
-<!--                <div class="container-fluid">-->
-<!--                    <router-view></router-view>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
+        <!-- Include the ArtistShow component and conditionally render it -->
+        <artist-show v-if="showArtist"></artist-show>
+    </div>
+
+    <div>
+        <button class="nav-link text-light" @click="createNewArtist">Maak artiest aan</button>
+
+        <!-- Include the ArtistShow component and conditionally render it -->
+        <artist-create v-if="artistCreate"></artist-create>
+    </div>
 
 </template>
 
 <script>
+import ArtistShow from './ArtistShow.vue';
+import ArtistCreate from "./ArtistCreate.vue";
 export default {
-    name: 'App'
-}
+    name: 'App',
+    components: {
+        'artist-show': ArtistShow,
+        'artist-create': ArtistCreate,
+    },
+    data() {
+        return {
+            showArtist: false,
+            artistCreate: false,
+        };
+    },
+    methods: {
+        toggleArtistShow() {
+            this.showArtist = !this.showArtist;
+        },
+        createNewArtist() {
+            this.artistCreate = !this.artistCreate;
+        }
+    },
+};
+//     data(){
+//
+//     },
+//
+//     methods: {
+//         toggleArtistShow(){
+//
+//         }
+//     },
+//
+// }
+
 </script>

@@ -28,26 +28,8 @@
 <div id="app">
 <app />
 {{--    <artist-list/>--}}
-    <artist-show/>
+{{--    <artist-show/>--}}
 </div>
 </body>
 </html>
-{{--<nav class="navbar navbar-expand-lg navbar-light bg-dark">--}}
-{{--    <ul class="navbar-nav">--}}
-{{--        <li class="nav-item active">--}}
-{{--            <a class="nav-link text-light text-decoration-underline" href="#">Home</a>--}}
-{{--        </li>--}}
-{{--        <li class="nav-item">--}}
-{{--            <a class="nav-link text-light text-decoration-underline" href="#">Alle artiesten</a>--}}
-{{--        </li>--}}
-{{--        <li class="nav-item">--}}
-{{--            <a class="nav-link text-light text-decoration-underline" href="#">Voeg artiest toe</a>--}}
-{{--        </li>--}}
-{{--        <li class="nav-item">--}}
-{{--            <a class="nav-link text-light text-decoration-underline" href="#">Alle platenmaatschappijen</a>--}}
-{{--        </li>--}}
-{{--        <li class="nav-item">--}}
-{{--            <a class="nav-link text-light text-decoration-underline" href="#">voeg platenmaatschappij toe</a>--}}
-{{--        </li>--}}
-{{--    </ul>--}}
-{{--</nav>--}}
+

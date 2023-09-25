@@ -17,3 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+//Route::resource('/components', 'ArtistInfoController');
+
+route::get('artistinfo', [App\Http\Controllers\ArtistInfoController::class, 'index']);
+Route::get('/artistinfo/create', [\App\Http\Controllers\ArtistInfoController::class, 'create']); //shows create post form
+Route::post('/artistinfo/create', [\App\Http\Controllers\ArtistInfoController::class, 'store']);
+
+//Route::post('/project_field/create_activity', [App\Http\Controllers\FieldController::class, 'create_activity']);

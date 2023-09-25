@@ -1,42 +1,37 @@
 <template>
+    <thead>
+    <tr>
+        <th scope="col">naam</th>
+    </tr>
+    </thead>
 
-<!--    <nav class="navbar navbar-expand-lg navbar-light bg-dark px-3 py-2">-->
-<!--        <ul class="navbar-nav">-->
-<!--            <li class="nav-item active">-->
-<!--                <a class="nav-link text-light text-decoration-underline" href="#">Home</a>-->
-<!--            </li>-->
-<!--            <li class="nav-item">-->
-<!--                <a class="nav-link text-light text-decoration-underline" href="#">Alle artiesten</a>-->
-<!--            </li>-->
-<!--            <li class="nav-item">-->
-<!--                <a class="nav-link text-light text-decoration-underline" href="#">Voeg artiest toe</a>-->
-<!--            </li>-->
-<!--            <li class="nav-item">-->
-<!--                <a class="nav-link text-light text-decoration-underline" href="#">Alle platenmaatschappijen</a>-->
-<!--            </li>-->
-<!--            <li class="nav-item" v-if="false" >-->
-<!--                <a class="nav-link text-light text-decoration-underline" href="#">voeg platenmaatschappij toe</a>-->
-<!--            </li>-->
-<!--        </ul>-->
-<!--    </nav>-->
+    <tbody>
 
-    <div>
-        <button class="nav-link text-light" @click="toggleArtistShow">Show Artist</button>
+        <tr v-for="item in items" :key="item.id">
+            {{item.id}}
+        </tr>
+    </tbody>
 
-        <!-- Include the ArtistShow component and conditionally render it -->
-        <artist-show v-if="showArtist"></artist-show>
-    </div>
 
-    <div>
-        <button class="nav-link text-light" @click="createNewArtist">Maak artiest aan</button>
 
-        <!-- Include the ArtistShow component and conditionally render it -->
-        <artist-create v-if="artistCreate"></artist-create>
-    </div>
+<!--    <div>-->
+<!--        <button class="nav-link text-light" @click="toggleArtistShow">Show Artist</button>-->
+
+<!--        &lt;!&ndash; Include the ArtistShow component and conditionally render it &ndash;&gt;-->
+<!--        <artist-show v-if="showArtist"></artist-show>-->
+<!--    </div>-->
+
+<!--    <div>-->
+<!--        <button class="nav-link text-light" @click="createNewArtist">Maak artiest aan</button>-->
+
+<!--        &lt;!&ndash; Include the ArtistShow component and conditionally render it &ndash;&gt;-->
+<!--        <artist-create v-if="artistCreate"></artist-create>-->
+<!--    </div>-->
 
 </template>
 
 <script>
+import axios from "axios";
 import ArtistShow from './ArtistShow.vue';
 import ArtistCreate from "./ArtistCreate.vue";
 export default {
@@ -49,8 +44,20 @@ export default {
         return {
             showArtist: false,
             artistCreate: false,
+            items: [],
         };
     },
+    mounted() {
+        // Use axios.get to assign data to the 'items' variable
+        axios.get('/api/artistinfo')
+            .then(response => {
+                this.items = response.data;
+            })
+            .catch(error => {
+                console.error('Error fetching items:', error);
+            });
+    },
+
     methods: {
         toggleArtistShow() {
             this.showArtist = !this.showArtist;

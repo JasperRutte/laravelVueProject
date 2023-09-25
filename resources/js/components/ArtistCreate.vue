@@ -1,8 +1,5 @@
 <template>
-    <div v-if="!artistCreate">
-        <!-- Your content for the ArtistShow component goes here -->
-        <p>create</p>
-    </div>
+
 </template>
 
 <script>

@@ -31,16 +31,6 @@ export default {
     },
 
 };
-//     data(){
-//
-//     },
-//
-//     methods: {
-//         toggleArtistShow(){
-//
-//         }
-//     },
-//
-// }
+
 
 </script>

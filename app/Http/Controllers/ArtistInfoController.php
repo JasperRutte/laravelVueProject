@@ -19,60 +19,34 @@ class ArtistInfoController extends Controller
 
     public function create()
     {
-//        $platenmaatschappij = Platenmaatschappijen::all(); // fetch all record labels
-        return;
+        //
     }
 
 
     public function store(Request $request)
     {
-//        $validated = $request->validate([
-//            'naam' => 'required|regex:/^[a-zA-Z ,]+$/u|max:255',
-//            'bandleden' => 'required|regex:/^[a-zA-Z ,]+$/u|max:800',
-//            'genre' => 'required',
-//            'platenmaatschappij_id' => 'required',
-//        ]); // need required for validations
-
-
-//        dd([$request->platenmaatschappij_id, $validated]);
-
-        $newArtist = ArtistInfo::create([
-            'naam' => $request->naam,
-            'bandleden' => $request->bandleden,
-            'genre' => $request->genre,
-            'platenmaatschappij' => $request->platenmaatschappij,
-        ]);
-
-        return redirect("/");
+        //
     }
 
-    /**
-     * Display the specified resource.
-     */
+
     public function show(ArtistInfo $artistInfo)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+
     public function edit(ArtistInfo $artistInfo)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+
     public function update(Request $request, ArtistInfo $artistInfo)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+
     public function destroy(ArtistInfo $artistInfo)
     {
         //

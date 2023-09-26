@@ -40,10 +40,10 @@ class ArtistInfoController extends Controller
             'naam' => $request->naam,
             'bandleden' => $request->bandleden,
             'genre' => $request->genre,
-            'platenmaatschappij_id' => $request->platenmaatschappij_id,
+            'platenmaatschappij' => $request->platenmaatschappij,
         ]);
 
-        return;
+        return redirect("/");
     }
 
     /**

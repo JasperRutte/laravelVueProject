@@ -15,7 +15,7 @@
                 <label for="price" class="form-label">Price:</label>
                 <input class="form-control" type="number" id="price" v-model="product.price" required />
             </div>
-            <button type="submit" v-if="isNewProduct" class="btn btn-primary">Add Product</button>
+            <button type="submit" v-if="isNewProduct" class="btn btn-primary">Ad Product</button>
             <button type="submit" v-else class="btn btn-primary">Update Product</button>
         </form>
     </div>

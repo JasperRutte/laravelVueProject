@@ -1,4 +1,5 @@
 <template>
+    <p>dawdkawl;dkaw</p>
 <!--    <div>-->
 <!--        <table class="table">-->
 <!--            <thead>-->
@@ -27,10 +28,10 @@
 <!--            </tbody>-->
 <!--        </table>-->
 <!--    </div>-->
-    <div v-if="!showArtist">
+<!--    <div v-if="!showArtist">-->
         <!-- Your content for the ArtistShow component goes here -->
-        <p>show</p>
-    </div>
+<!--        <p>show</p>-->
+<!--    </div>-->
 </template>
 
 <script>

@@ -4,7 +4,6 @@ import { createApp } from "vue"
 import { createRouter, createWebHistory } from "vue-router";
 
 import App from "@/components/App.vue";
-import Artists from "@/components/Artists.vue";
 import ArtistList from "@/components/ArtistList.vue";
 import ArtistShow from "@/components/ArtistShow.vue";
 
@@ -30,7 +29,6 @@ const router = createRouter({
 const app = createApp({
     components: {
         App,
-        Artists,
         ArtistList,
         ArtistShow,
     }

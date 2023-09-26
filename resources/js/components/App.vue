@@ -4,8 +4,6 @@
     <router-link to="ArtistShow">Show</router-link>
     <router-view></router-view>
 
-
-
 </template>
 
 <script>

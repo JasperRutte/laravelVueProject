@@ -17,15 +17,29 @@ class ArtistInfoController extends Controller
     }
 
 
-    public function create()
-    {
-        return;
-    }
+//    public function create()
+//    {
+//
+//        return view( 'ArtistCreate');
+//    }
 
 
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'naam' => 'required|regex:/^[a-zA-Z ,]+$/u|max:255',
+            'bandleden' => 'required|regex:/^[a-zA-Z ,]+$/u|max:800',
+            'genre' => 'required',
+//            'platenmaatschappij' => 'required',
+        ]); // need `required` for validations
+
+
+        $newArtist = new ArtistInfo;
+        $newArtist->naam = $validated["naam"];
+        $newArtist->bandleden = $validated["bandleden"];
+        $newArtist->genre = $validated["genre"];
+
+        $newArtist->save();
     }
 
 

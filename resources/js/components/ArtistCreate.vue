@@ -1,8 +1,10 @@
 <template>
 <h1>Maak een artiest aan</h1>
-    <label for="naam"></label>
-    <input type="text" id="title" class="form-control" name="naam">
-<form action="" method="POST">
+
+<form @submit.prevent="submitForm">
+    <label for="naam">naam</label>
+    <input type="text" id="naam" class="form-control" name="naam">
+
 
     <label for="platenmaatschappij">Platenmaatschappij</label>
     <select name="platenmaatschappij">
@@ -31,7 +33,7 @@
 
     <div class="row mt-2">
         <div class="control-group col-12 text-center">
-            <button id="btn-submit" class="col-8 btn btn-success">
+            <button type="submit" id="btn-submit" class="col-8 btn btn-success">
                 Create artist
             </button>
         </div>
@@ -41,12 +43,30 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
     name: 'ArtistCreate',
     data() {
         return {
             artistCreate: false,
         };
+    },
+    methods: {
+        submitForm() {
+            axios.post('/api/artistinfo/create', this.formData)
+                .then(response => {
+                    console.log(this.formData)
+                    console.log(response.data.message);
+                    // Handle success or redirection here
+                })
+                .catch(error => {
+                    // console.log("test")
+                    console.log(this.formData)
+                    console.error(error.response.data.message);
+                    // Handle errors here
+                });
+        },
     },
 };
 

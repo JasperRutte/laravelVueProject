@@ -32,8 +32,8 @@ class ArtistInfoController extends Controller
             'genre' => 'required',
 //            'platenmaatschappij' => 'required',
         ]); // need `required` for validations
-
-
+//
+//        dd($validated);
         $newArtist = new ArtistInfo;
         $newArtist->naam = $validated["naam"];
         $newArtist->bandleden = $validated["bandleden"];

@@ -8,8 +8,11 @@
 
     <tbody>
 
+
     <tr v-for="item in items" :key="item.id">
-        {{item.naam}}
+        <router-link to='api/artistinfo'>
+            {{item.naam}}
+        </router-link>
     </tr>
     </tbody>
 </template>

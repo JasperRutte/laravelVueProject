@@ -45,7 +45,8 @@ class ArtistInfoController extends Controller
 
     public function show(ArtistInfo $artistInfo)
     {
-        //
+            
+        return ;
     }
 
 

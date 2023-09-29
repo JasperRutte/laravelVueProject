@@ -21,4 +21,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 route::get('artistinfo', [App\Http\Controllers\ArtistInfoController::class, 'index']);
 Route::get('/artistinfo/create', [\App\Http\Controllers\ArtistInfoController::class, 'create']); //shows create post form
 Route::post('/artistinfo/create', [\App\Http\Controllers\ArtistInfoController::class, 'store']);
+Route::get('/artistinfo/{artist}', [\App\Http\Controllers\ArtistInfoController::class, 'show']);
 

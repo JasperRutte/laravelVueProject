@@ -4,6 +4,9 @@
         <p>genre: {{artist.genre}}</p>
         <p>bandleden: {{artist.bandleden}}</p>
 
+
+        <button class="btn-primary" @click="removeArtist">delete</button>
+
     </div>
 
 </template>
@@ -31,7 +34,13 @@ export default {
             .catch(error => {
                 console.error(error);
             });
-    }
+    },
+    methods: {
+        removeArtist(){
+            axios.delete(`/api/artistinfo/`+this.$route.params.id)
+            // console.log("../artistinfo/"+this.$route.params.id)
+            }
+        }
 };
 
 

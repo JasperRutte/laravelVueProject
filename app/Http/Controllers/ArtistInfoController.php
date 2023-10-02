@@ -46,7 +46,6 @@ class ArtistInfoController extends Controller
     public function show($id)
     {
         $item = ArtistInfo::find($id);
-//        dd(response()->json(['item' => $item]));
         return response()->json(['item' => $item]);
     }
 
@@ -65,6 +64,6 @@ class ArtistInfoController extends Controller
 
     public function destroy(ArtistInfo $artistInfo)
     {
-        //
+        $artistInfo->delete();
     }
 }

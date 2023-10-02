@@ -2,7 +2,7 @@
 <h1>Maak een artiest aan</h1>
 
     <form @submit.prevent="submitForm">
-        <label for="naam">naam</label>
+        <label ref="form" for="naam">naam</label>
         <input v-model="artist.naam" type="text" id="naam" class="form-control" name="naam">
 
 

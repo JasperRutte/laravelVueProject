@@ -1,20 +1,37 @@
 <template>
+    <div v-if="hasLoaded">
+        <h1>{{artist.naam}}</h1>
+        <p>genre: {{artist.genre}}</p>
+        <p>bandleden: {{artist.bandleden}}</p>
 
+    </div>
 
 </template>
 
 <script>
 import axios from "axios";
 
-axios.get('/api//artistinfo/{artist}')
 export default {
-
     name: 'ArtistShow',
     data() {
         return {
-            showArtist: false,
-        };
+            hasLoaded: false,
+            artist: null
+        }
     },
+    mounted() {
+
+        console.log(this.$route)
+        axios.get(`/api/artistinfo/`+this.$route.params.id)
+            .then(response => {
+                this.artist = response.data.item;
+                console.log(response.data);
+                this.hasLoaded = true
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    }
 };
 
 

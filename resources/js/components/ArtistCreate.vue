@@ -65,7 +65,6 @@ export default {
                 .then(response => {
                     console.log("success")
                     console.log(this.artist)
-                    console.log(response.data.message);
                     // Handle success or redirection here
                 })
                 .catch(error => {

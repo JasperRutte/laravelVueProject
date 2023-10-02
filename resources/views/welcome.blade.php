@@ -26,7 +26,7 @@
 </head>
 <body>
 <div id="app">
-<app />
+    <app></app>
 {{--    <artist-list/>--}}
 {{--    <artist-show/>--}}
 </div>

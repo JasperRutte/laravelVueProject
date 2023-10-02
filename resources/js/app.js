@@ -15,7 +15,7 @@ const routes = [
         component: ArtistList
     },
     {
-        path: "/ArtistShow",
+        path: "/ArtistShow/:id",
         component: ArtistShow
     },
     {

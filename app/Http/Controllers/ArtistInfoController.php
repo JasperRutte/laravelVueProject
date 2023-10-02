@@ -43,10 +43,11 @@ class ArtistInfoController extends Controller
     }
 
 
-    public function show(ArtistInfo $artistInfo)
+    public function show($id)
     {
-            
-        return ;
+        $item = ArtistInfo::find($id);
+//        dd(response()->json(['item' => $item]));
+        return response()->json(['item' => $item]);
     }
 
 

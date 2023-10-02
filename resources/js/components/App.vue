@@ -1,8 +1,8 @@
 <template>
 
-    <router-link to="ArtistList">list</router-link> <br>
-    <router-link to="ArtistShow">Show</router-link> <br>
-    <router-link to="ArtistCreate">Create</router-link>
+    <router-link to="../ArtistList">list</router-link> <br>
+<!--    <router-link to="ArtistShow">Show</router-link> <br>-->
+    <router-link to="../ArtistCreate">Create</router-link>
     <router-view></router-view>
 
 </template>

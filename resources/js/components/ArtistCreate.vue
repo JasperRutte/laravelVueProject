@@ -65,6 +65,9 @@ export default {
                 .then(response => {
                     console.log("success")
                     console.log(this.artist)
+                    this.artist.naam = "";
+                    this.artist.bandleden = "";
+                    this.artist.genre = "";
                     // Handle success or redirection here
                 })
                 .catch(error => {

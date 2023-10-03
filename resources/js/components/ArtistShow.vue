@@ -37,8 +37,13 @@ export default {
     },
     methods: {
         removeArtist(){
-            axios.delete(`/api/artistinfo/`+this.$route.params.id)
-            // console.log("../artistinfo/"+this.$route.params.id)
+            axios.delete(`../api/artistinfo/${this.$route.params.id}`)
+                .then(response => {
+                    console.log(`Deleted post with ID ${postIdToDelete}`);
+                })
+                .catch(error => {
+                    console.error(error);
+                });
             }
         }
 };

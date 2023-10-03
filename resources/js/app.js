@@ -7,6 +7,7 @@ import App from "@/components/App.vue";
 import ArtistList from "@/components/ArtistList.vue";
 import ArtistShow from "@/components/ArtistShow.vue";
 import ArtistCreate from "@/components/ArtistCreate.vue";
+import ArtistEdit from "@/components/ArtistEdit.vue"
 
 
 const routes = [
@@ -22,6 +23,10 @@ const routes = [
         path: "/ArtistCreate",
         component: ArtistCreate
     },
+    {
+        path: "/ArtistEdit",
+        component: ArtistEdit
+    }
 
 ];
 
@@ -36,6 +41,7 @@ const app = createApp({
         App,
         ArtistList,
         ArtistShow,
+        ArtistEdit
     }
 })
 

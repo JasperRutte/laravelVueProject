@@ -5,7 +5,10 @@
         <p>bandleden: {{artist.bandleden}}</p>
 
 
-        <button class="btn-primary" @click="removeArtist">delete</button>
+        <button class="btn btn-danger" @click="removeArtist">delete</button>
+
+        <router-link to="../ArtistEdit">Edit</router-link>
+        <router-view></router-view>
 
     </div>
 

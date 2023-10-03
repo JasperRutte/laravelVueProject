@@ -50,9 +50,19 @@ class ArtistInfoController extends Controller
     }
 
 
-    public function edit(ArtistInfo $artistInfo)
+    public function edit(ArtistInfo $ArtistInfo, $id)// edit an artist
     {
-        //
+        $item = ArtistInfo::find($id);
+        return response()->json(['item' => $item]);
+//
+//        $ArtistInfo = ArtistInfo::all();
+//        $platenmaatschappij = Platenmaatschappij::all();
+//        return $ArtistInfo;
+//            'test1' => $ArtistInfo,
+//            'artist' => $ArtistInfo,
+//            'platenmaatschappij'=> $platenmaatschappij
+//  //returns the edit view with the post
+
     }
 
 

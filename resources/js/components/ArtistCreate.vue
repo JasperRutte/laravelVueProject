@@ -6,16 +6,10 @@
         <input v-model="artist.naam" type="text" id="naam" class="form-control" name="naam">
 
 
-<!--        <label for="bandleden">Bandleden</label>-->
-<!--        <select v-model="artist.bandleden" name="Bandleden">-->
-<!--            <option value="test1">test1</option>-->
-<!--            <option value="test2">test2</option>-->
-<!--            <option value="test3">test3</option>-->
-<!--        </select> <br>-->
         <label for="bandleden">bandleden</label>
         <input v-model="artist.bandleden" type="text" id="naam" class="form-control" name="naam">
 
-<!--        <label for="bandleden">Bandleden</label>-->
+
         <label for="genre">Genre:</label><br>
 
         <input v-model="artist.genre" type="radio" id="rock" name="genre" value="Rock" >
@@ -56,6 +50,9 @@ export default {
                 naam: "",
                 bandleden: "",
                 genre: "",
+            },
+            errors: {
+
             }
         };
     },

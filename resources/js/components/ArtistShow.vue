@@ -19,7 +19,8 @@ export default {
     data() {
         return {
             hasLoaded: false,
-            artist: null
+            artist: null,
+            errors: null
         }
     },
     mounted() {
@@ -42,6 +43,7 @@ export default {
                     console.log(`Deleted post with ID ${postIdToDelete}`);
                 })
                 .catch(error => {
+                    console.log("failed")
                     console.error(error);
                 });
             }

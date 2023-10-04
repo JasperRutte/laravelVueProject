@@ -7,7 +7,7 @@
 
         <button class="btn btn-danger" @click="removeArtist">delete</button>
 
-        <router-link to="../ArtistEdit">Edit</router-link>
+        <router-link :to="'../ArtistEdit/'+ artist.id">Edit'</router-link>
         <router-view></router-view>
 
     </div>

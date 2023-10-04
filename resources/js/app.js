@@ -24,7 +24,7 @@ const routes = [
         component: ArtistCreate
     },
     {
-        path: "/ArtistEdit",
+        path: "/ArtistEdit/:id",
         component: ArtistEdit
     }
 

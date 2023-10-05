@@ -40,12 +40,15 @@ export default {
             });
     },
     methods: {
-        removeArtist(){
+
+        removeArtist() {
+            // axios.defaults.headers.common['X-CSRF-TOKEN'] = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
             axios.delete(`/api/artistinfo/${this.$route.params.id}`)
                 .then(response => {
-                    console.log(response.data); // handle success\
+                    console.log(response.data);
                     console.log("success")
-                    this.$router.push("/ArtistList")
+                    this.$router.push("/ArtistList");
                 })
                 .catch(error => {
                     console.log("failed")

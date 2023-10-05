@@ -81,8 +81,9 @@ class ArtistInfoController extends Controller
 
     public function destroy(ArtistInfo $ArtistInfo)
     {
-//        dd($artistInfo);
+//        dd($ArtistInfo);
         $ArtistInfo->delete();
-        return;
+        return response()->json(['message' => 'Artist deleted successfully']);
+//        return $ArtistInfo->delete();
     }
 }

@@ -24,4 +24,4 @@ Route::post('artistinfo/create', [App\Http\Controllers\ArtistInfoController::cla
 Route::get('artistinfo/{artist}', [App\Http\Controllers\ArtistInfoController::class, 'show']);
 Route::get('artistinfo/{artist}/edit', [App\Http\Controllers\ArtistInfoController::class, 'edit']); //shows edit post form
 Route::put('artistinfo/{artist}/edit', [App\Http\Controllers\ArtistInfoController::class, 'update']);
-Route::delete('artistinfo/{artist}/', [App\Http\Controllers\ArtistInfoController::class, 'destroy']);
+Route::delete('artistinfo/{artist}', [App\Http\Controllers\ArtistInfoController::class, 'destroy']);

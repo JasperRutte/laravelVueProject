@@ -79,9 +79,10 @@ class ArtistInfoController extends Controller
 
 
 
-    public function destroy(ArtistInfo $artistInfo)
+    public function destroy(ArtistInfo $ArtistInfo)
     {
 //        dd($artistInfo);
-        $artistInfo->delete();
+        $ArtistInfo->delete();
+        return;
     }
 }

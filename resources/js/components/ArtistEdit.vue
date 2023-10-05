@@ -49,6 +49,7 @@ export default {
                 this.artist = response.data.item;
                 console.log(response.data);
                 this.hasLoaded = true
+
             })
             .catch(error => {
                 console.error(error);
@@ -60,6 +61,8 @@ export default {
                 .then(response => {
                     console.log("success")
                     console.log(this.artist)
+                    this.buttonPressed = true
+                    this.$router.push('/ArtistList')
                     // Handle success or redirection here
                 })
                 .catch(error => {

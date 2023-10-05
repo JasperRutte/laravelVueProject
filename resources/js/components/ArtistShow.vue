@@ -45,9 +45,10 @@ export default {
                 .then(response => {
                     console.log(response.data); // handle success\
                     console.log("success")
-                    console.log(this.$route)
+                    this.$router.push("/ArtistList")
                 })
                 .catch(error => {
+                    console.log("failed")
                     console.error(error); // handle error
                 });
             }

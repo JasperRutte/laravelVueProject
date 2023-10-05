@@ -41,13 +41,14 @@ export default {
     },
     methods: {
         removeArtist(){
-            axios.delete(`../api/artistinfo/${this.$route.params.id}`)
+            axios.delete(`/api/artistinfo/${this.$route.params.id}`)
                 .then(response => {
-                    console.log(`Deleted post with ID ${postIdToDelete}`);
+                    console.log(response.data); // handle success\
+                    console.log("success")
+                    console.log(this.$route)
                 })
                 .catch(error => {
-                    console.log("failed")
-                    console.error(error);
+                    console.error(error); // handle error
                 });
             }
         }

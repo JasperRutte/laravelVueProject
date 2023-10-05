@@ -68,12 +68,20 @@ class ArtistInfoController extends Controller
 
     public function update(Request $request, ArtistInfo $artistInfo)
     {
-        //
+        $artistInfo ->update([
+            'naam' => $request->naam,
+            'bandleden' => $request->bandleden,
+            'genre' => $request->genre
+        ]);
+//        dd($artistInfo);
+        return $artistInfo;
     }
+
 
 
     public function destroy(ArtistInfo $artistInfo)
     {
+//        dd($artistInfo);
         $artistInfo->delete();
     }
 }

@@ -5,6 +5,7 @@
                 <th scope="col">naam</th>
                 <th scope="col">bandleden</th>
                 <th scope="col">genre</th>
+                <th scope="col">id</th>
             </tr>
         </thead>
 
@@ -13,6 +14,7 @@
                 <td><router-link :to="'ArtistShow/' + item.id">{{item.naam}}</router-link></td>
                 <td>{{item.bandleden}}</td>
                 <td>{{item.genre}}</td>
+                <td>{{item.id}}</td>
             </tr>
         </tbody>
     </table>

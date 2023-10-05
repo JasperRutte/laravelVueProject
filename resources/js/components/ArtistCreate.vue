@@ -5,7 +5,7 @@
     <router-link to="App">create platenmaatschappij</router-link>
 
     <div v-if="createArtist">
-        <form @submit.prevent="submitForm">
+        <form @submit.prevent="submitArtist">
             <h1>Maak een artiest aan</h1>
 
             <label ref="form" for="naam">naam</label>
@@ -45,8 +45,13 @@
 
 
     <div v-else-if="createPlatenmaatschappij">
-        <form >
-            <p>dwadawdaw</p>
+        <form @submit.prevent="submitPlatenmaatschappij">
+            <input type="text" v-model="platenmaatschappij.naam">
+            <div class="control-group col-3 text-center">
+                <button type="submit" id="btn-submit" class="col-8 btn btn-success">
+                    Create platenmaatschappij
+                </button>
+            </div>
         </form>
     </div>
 
@@ -66,6 +71,9 @@ export default {
                 bandleden: "",
                 genre: "",
             },
+            platenmaatschappij : {
+              naam: ""
+            },
             errors: {
 
             },
@@ -74,23 +82,25 @@ export default {
         };
     },
     methods: {
-        submitForm() {
+        submitArtist() {
             axios.post('/api/artistinfo/create', this.artist)
                 .then(response => {
-                    console.log("success")
-                    console.log(this.artist)
                     this.artist.naam = "";
                     this.artist.bandleden = "";
                     this.artist.genre = "";
-                    // Handle success or redirection here
                 })
                 .catch(error => {
-                    // console.log("test")
-                    console.log("failed")
-                    console.log(this.artist)
                     console.error(error.response.data.message);
-                    // Handle errors here
                 });
+        },
+        submitPlatenmaatschappij(){
+            axios.post('/api/platenmaatschappijen/create', this.platenmaatschappij)
+                .then(response => {
+                    this.platenmaatschappij.naam = "";
+                })
+                .catch(error => {
+                    console.log(error.response.data.message)
+                })
         },
         createPlatenmaatschappijArtist(artist) {
             if (artist === "platenmaatschappij") {

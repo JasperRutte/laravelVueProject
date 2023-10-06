@@ -1,8 +1,7 @@
 <template>
-    <br><button id="artist" class="btn btn-primary" @click="createPlatenmaatschappijArtist('artist')">create artist</button> <br>
-    <button id="platenmaatschappij" class="btn btn-primary" @click="createPlatenmaatschappijArtist('platenmaatschappij')">create platenmaatschappij</button>
+    <br><button id="artist" class="btn btn-primary" @click="selectPlatenmaatschappijArtist('artist')">create artist</button> <br>
+    <button id="platenmaatschappij" class="btn btn-primary" @click="selectPlatenmaatschappijArtist('platenmaatschappij')">create platenmaatschappij</button>
 
-    <router-link to="App">create platenmaatschappij</router-link>
 
     <div v-if="createArtist">
         <form @submit.prevent="submitArtist">
@@ -102,11 +101,11 @@ export default {
                     console.log(error.response.data.message)
                 })
         },
-        createPlatenmaatschappijArtist(artist) {
-            if (artist === "platenmaatschappij") {
+        selectPlatenmaatschappijArtist(selection) {
+            if (selection === "platenmaatschappij") {
                 this.createPlatenmaatschappij = true
                 this.createArtist = false
-            } else if (artist === "artist") {
+            } else if (selection === "artist") {
                 this.createPlatenmaatschappij = false
                 this.createArtist = true
             }

@@ -11,7 +11,7 @@ class PlatenmatschappijenController extends Controller
     public function index()
     {
         //fetch all artists from DB
-        return Platenmaatschappijen::all(); // return view with options to create an artist, and all the record labels
+//        return Platenmaatschappijen::all(); // return view with options to create an artist, and all the record labels
 
     }
 
@@ -27,7 +27,7 @@ class PlatenmatschappijenController extends Controller
         ]);
 
         $newPlatenmaatschappij = new Platenmaatschappijen();
-        $newPlatenmaatschappij->platenmaatschappij = $validated['naam'];
+        $newPlatenmaatschappij->naam = $validated['naam'];
 //        $newArtist->genre = $validated["genre"];
         $newPlatenmaatschappij->save();
     }

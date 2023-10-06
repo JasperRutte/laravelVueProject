@@ -1,5 +1,5 @@
 <template>
-    <div v-if="hasLoaded">
+    <div v-if="loadArtists">
         <h1>{{artist.naam}}</h1>
         <p>genre: {{artist.genre}}</p>
         <p>bandleden: {{artist.bandleden}}</p>
@@ -27,7 +27,6 @@ export default {
         }
     },
     mounted() {
-
         console.log(this.$route)
         axios.get(`/api/artistinfo/`+this.$route.params.id)
             .then(response => {

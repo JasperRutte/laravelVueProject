@@ -29,3 +29,4 @@ Route::delete('artistinfo/{artist}', [App\Http\Controllers\ArtistInfoController:
 Route::get('platenmaatschappijen', [App\Http\Controllers\PlatenmatschappijenController::class, 'index']);
 Route::get('platenmaatschappijen/create', [App\Http\Controllers\PlatenmatschappijenController::class, 'create']);
 Route::post('platenmaatschappijen/create', [App\Http\Controllers\PlatenmatschappijenController::class, 'store']);
+Route::delete('platenmaatschappijen/{platenmaatschappij}', [App\Http\Controllers\ArtistInfoController::class, 'destroy']);

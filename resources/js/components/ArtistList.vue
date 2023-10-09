@@ -29,24 +29,16 @@
     <table v-else-if="loadPlatenmaatschappijen" class="table table-bordered">
         <thead>
         <tr>
-            <th scope="col">Platenmaatschappij</th>
-            <th scope="col">delete</th>
-            <th scope="col">Edit</th>
+            <th>Platenmaatschappij</th>
+            <th>edit/delete</th>
         </tr>
         </thead>
-<!--        <thead>-->
-<!--        <tr>-->
-<!--            <th>Platenmaatschappij</th>-->
-<!--            <th>delete</th>-->
-<!--            <th>Edit</th>-->
-<!--        </tr>-->
-<!--        </thead>-->
-
         <tbody>
         <tr v-for="platenmaatschappij in platenmaatschappijen" :key="platenmaatschappij">
             <td>{{platenmaatschappij.naam}}</td>
-            <td class="btn">delete</td>
-            <td class="btn">Edit</td>
+            <td class="btn btn-outline-success col-5" ><router-link :to=""></router-link></td>
+            <td class="btn btn-outline-danger col-5">delete</td>
+
         </tr>
         </tbody>
 <!--        <tbody>-->

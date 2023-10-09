@@ -15,10 +15,6 @@ class PlatenmatschappijenController extends Controller
 
     }
 
-//    public function create()
-//    {
-//        //
-//    }
 
     public function store(Request $request)
     {
@@ -32,23 +28,27 @@ class PlatenmatschappijenController extends Controller
         $newPlatenmaatschappij->save();
     }
 
-    public function show(Platenmaatschappijen $platenmaatschappijen)
-    {
-        //
-    }
 
-    public function edit(Platenmaatschappijen $platenmaatschappijen)
+    public function edit(Platenmaatschappijen $platenmaatschappijen, $id)
     {
-        //
+        $item = Platenmaatschappijen::find($id);
+        return response()->json(['item' => $item]);
+
     }
 
     public function update(Request $request, Platenmaatschappijen $platenmaatschappijen)
     {
-        //
+        $validated = $request->validate(["platenmaatschappij" =>'required|regex:/^[a-zA-Z , .]+$/u|max:255']);
+
+        $upDatedPlatenmaatschappij = Platenmaatschappijen::where("id", $request->id)->first();
+        $upDatedPlatenmaatschappij->platenmaatschappij = $request->platenmaatschappij;
+        $upDatedPlatenmaatschappij->save();
     }
 
-    public function destroy(Platenmaatschappijen $platenmaatschappijen)
+    public function destroy($platenmaatschappij)
     {
-        //
+        $deletedPlatenmaatschappij = Platenmaatschappijen::find($platenmaatschappij);
+
+        $deletedPlatenmaatschappij->delete();
     }
 }

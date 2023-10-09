@@ -31,6 +31,7 @@ export default {
         axios.get(`/api/artistinfo/`+this.$route.params.id)
             .then(response => {
                 this.artist = response.data.item;
+                console.log(this.artist)
                 console.log(response.data);
                 this.hasLoaded = true
             })
@@ -41,17 +42,14 @@ export default {
     methods: {
 
         removeArtist() {
-            // axios.defaults.headers.common['X-CSRF-TOKEN'] = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-
             axios.delete(`/api/artistinfo/${this.$route.params.id}`)
                 .then(response => {
-                    console.log(response.data);
-                    console.log("success")
+                    console.log("success");
                     this.$router.push("/ArtistList");
                 })
                 .catch(error => {
-                    console.log("failed")
-                    console.error(error); // handle error
+                    console.log("failed");
+                    console.error(error);
                 });
             }
         }

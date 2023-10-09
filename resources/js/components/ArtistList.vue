@@ -1,9 +1,11 @@
 <template>
-    <br> <button class="btn btn-primary" @click="selectPlatenmaatschappijArtist('artists')">Artists</button>
-    <br> <button class="btn btn-primary" @click="selectPlatenmaatschappijArtist('platenmaatschappijen')">Platenmaatschappijen</button>
+    <nav>
+        <br> <button class="btn btn-info ms-4" @click="selectPlatenmaatschappijArtist('artists')">Artists</button> |
+        <button class="btn btn-info" @click="selectPlatenmaatschappijArtist('platenmaatschappijen')">Platenmaatschappijen</button>
+    </nav>
 
-    <table class="table" v-if="loadArtists">
-        <thead class="thead-dark">
+    <table class="table table-bordered" v-if="loadArtists">
+        <thead>
         <tr>
             <th scope="col">naam</th>
             <th scope="col">bandleden</th>
@@ -24,17 +26,36 @@
 
 
 
-    <table v-else-if="loadPlatenmaatschappijen">
+    <table v-else-if="loadPlatenmaatschappijen" class="table table-bordered">
         <thead>
         <tr>
             <th scope="col">Platenmaatschappij</th>
+            <th scope="col">delete</th>
+            <th scope="col">Edit</th>
         </tr>
         </thead>
+<!--        <thead>-->
+<!--        <tr>-->
+<!--            <th>Platenmaatschappij</th>-->
+<!--            <th>delete</th>-->
+<!--            <th>Edit</th>-->
+<!--        </tr>-->
+<!--        </thead>-->
+
         <tbody>
-            <tr v-for="platenmaatschappij in platenmaatschappijen" :key="platenmaatschappij">
-                <td>{{platenmaatschappij.naam}}</td>
-            </tr>
+        <tr v-for="platenmaatschappij in platenmaatschappijen" :key="platenmaatschappij">
+            <td>{{platenmaatschappij.naam}}</td>
+            <td class="btn">delete</td>
+            <td class="btn">Edit</td>
+        </tr>
         </tbody>
+<!--        <tbody>-->
+<!--            <tr v-for="platenmaatschappij in platenmaatschappijen" :key="platenmaatschappij">-->
+<!--                <td>{{platenmaatschappij.naam}}</td>-->
+<!--                <td class="btn">delete</td>-->
+<!--                <td class="btn">Edit</td>-->
+<!--            </tr>-->
+<!--        </tbody>-->
     </table>
 
     <router-view></router-view>

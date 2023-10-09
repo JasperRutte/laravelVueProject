@@ -1,9 +1,9 @@
 <template>
-    <br><button id="artist" class="btn btn-primary" @click="selectPlatenmaatschappijArtist('artist')">create artist</button> <br>
-    <button id="platenmaatschappij" class="btn btn-primary" @click="selectPlatenmaatschappijArtist('platenmaatschappij')">create platenmaatschappij</button>
+    <br><button id="artist" class="btn btn-info ms-4" @click="selectPlatenmaatschappijArtist('artist')">create artist</button> |
+    <button id="platenmaatschappij" class="btn btn-info" @click="selectPlatenmaatschappijArtist('platenmaatschappij')">create platenmaatschappij</button>
 
 
-    <div v-if="createArtist">
+    <div v-if="createArtist" class="col-6 m-5">
         <form @submit.prevent="submitArtist">
             <h1>Maak een artiest aan</h1>
 
@@ -43,14 +43,13 @@
     </div>
 
 
-    <div v-else-if="createPlatenmaatschappij">
+    <div v-else-if="createPlatenmaatschappij" class="col-6 m-5">
         <form @submit.prevent="submitPlatenmaatschappij">
-            <input type="text" v-model="platenmaatschappij.naam">
-            <div class="control-group col-3 text-center">
-                <button type="submit" id="btn-submit" class="col-8 btn btn-success">
-                    Create platenmaatschappij
-                </button>
-            </div>
+            <h1>Maak een platenmaatschappij</h1>
+            <input type="text" v-model="platenmaatschappij.naam" class="form-control col-2">
+            <button type="submit" id="btn-submit" class="btn btn-success mt-3">
+                Create platenmaatschappij
+            </button>
         </form>
     </div>
 

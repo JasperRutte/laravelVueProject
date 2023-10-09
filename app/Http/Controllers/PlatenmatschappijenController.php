@@ -11,7 +11,7 @@ class PlatenmatschappijenController extends Controller
     public function index()
     {
         //fetch all artists from DB
-//        return Platenmaatschappijen::all(); // return view with options to create an artist, and all the record labels
+        return Platenmaatschappijen::all(); // return view with options to create an artist, and all the record labels
 
     }
 

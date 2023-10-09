@@ -1,5 +1,5 @@
 <template>
-    <div v-if="loadArtists">
+    <div v-if="hasLoaded">
         <h1>{{artist.naam}}</h1>
         <p>genre: {{artist.genre}}</p>
         <p>bandleden: {{artist.bandleden}}</p>

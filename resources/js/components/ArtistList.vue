@@ -13,11 +13,11 @@
         </thead>
 
         <tbody>
-        <tr v-for="item in items" :key="item.id">
-            <td><router-link :to="'ArtistShow/' + item.id">{{item.naam}}</router-link></td>
-            <td>{{item.bandleden}}</td>
-            <td>{{item.genre}}</td>
-            <td>{{item.id}}</td>
+        <tr v-for="artist in artists" :key="artist.id">
+            <td><router-link :to="'ArtistShow/' + artist.id">{{artist.naam}}</router-link></td>
+            <td>{{artist.bandleden}}</td>
+            <td>{{artist.genre}}</td>
+            <td>{{artist.id}}</td>
         </tr>
         </tbody>
     </table>
@@ -25,7 +25,16 @@
 
 
     <table v-else-if="loadPlatenmaatschappijen">
-        <p>dwadaw</p>
+        <thead>
+        <tr>
+            <th scope="col">Platenmaatschappij</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr v-for="platenmaatschappij in platenmaatschappijen" :key="platenmaatschappij">
+                <td>{{platenmaatschappij.naam}}</td>
+            </tr>
+        </tbody>
     </table>
 
     <router-view></router-view>
@@ -38,7 +47,8 @@ export default {
     name: 'App',
     data() {
         return {
-            items: [],
+            artists: [],
+            platenmaatschappijen: [],
             loadArtists: false,
             loadPlatenmaatschappijen: false,
         };
@@ -46,14 +56,15 @@ export default {
     mounted() {
         axios.get('/api/artistinfo')
             .then(response => {
-                this.items = response.data;
+                this.artists = response.data;
             })
             .catch(error => {
                 console.error('Error fetching items:', error);
             });
-        axios.get('/api/artistinfo')
+
+        axios.get('/api/platenmaatschappijen')
             .then(response => {
-                this.items = response.data;
+                this.platenmaatschappijen = response.data;
             })
             .catch(error => {
                 console.error('Error fetching items:', error);

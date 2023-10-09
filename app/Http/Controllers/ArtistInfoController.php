@@ -68,14 +68,27 @@ class ArtistInfoController extends Controller
 
     public function update(Request $request, ArtistInfo $artistInfo)
     {
-        $artistInfo ->update([
-            'naam' => $request->naam,
-            'bandleden' => $request->bandleden,
-            'genre' => $request->genre
+        $validated = $request->validate([
+            'naam' => 'required|regex:/^[a-zA-Z , .]+$/u|max:255',
+            'bandleden' => 'required|regex:/^[a-zA-Z , .]+$/u|max:800',
+            'genre' => 'required',
         ]);
-//        dd($artistInfo);
-        return $artistInfo;
+
+
+        $test = ArtistInfo::where("id", $request->id)->first();
+        $test->naam = $request->naam;
+        $test->bandleden = $request->bandleden;
+        $test->genre = $request->genre;
+        $test->save();
+
+        if ($test) {
+            return response()->json(['message' => 'Update successful'], 200);
+        } else {
+            return response()->json(['message' => 'Update failed'], 500);
+        }
     }
+//        dd($artistInfo);
+//        return $artistInfo;
 
 
 

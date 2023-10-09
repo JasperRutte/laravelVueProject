@@ -1,11 +1,14 @@
 <template>
+<nav class="text-center mt-3" >
+    <router-link to="../ArtistList" class="btn btn-primary">List</router-link> |
+    <router-link to="../ArtistCreate" class="btn btn-primary">Create</router-link>
+</nav>
 
-    <router-link to="../ArtistList">List</router-link> <br>
-<!--    <router-link to="ArtistShow">Show</router-link> <br>-->
-    <router-link to="../ArtistCreate">Create</router-link>
     <router-view></router-view>
 
 </template>
+
+
 
 <script>
 

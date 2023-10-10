@@ -31,6 +31,7 @@ class PlatenmatschappijenController extends Controller
 
     public function edit(Platenmaatschappijen $platenmaatschappijen, $id)
     {
+        dd($id);
         $item = Platenmaatschappijen::find($id);
         return response()->json(['item' => $item]);
 

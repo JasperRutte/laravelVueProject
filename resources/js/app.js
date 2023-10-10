@@ -8,6 +8,7 @@ import ArtistList from "@/components/ArtistList.vue";
 import ArtistShow from "@/components/ArtistShow.vue";
 import ArtistCreate from "@/components/ArtistCreate.vue";
 import ArtistEdit from "@/components/ArtistEdit.vue"
+import PlatenmaatschappijEdit from "@/components/PlatenmaatschappijEdit.vue";
 
 
 const routes = [
@@ -26,6 +27,10 @@ const routes = [
     {
         path: "/ArtistEdit/:id",
         component: ArtistEdit
+    },
+    {
+        path: "/PlatenmaatschappijEdit/:id",
+        component: PlatenmaatschappijEdit
     }
 
 ];

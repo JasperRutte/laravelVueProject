@@ -26,7 +26,7 @@
 
 
 
-    <table v-else-if="loadPlatenmaatschappijen" class="table table-bordered">
+    <table v-else-if="loadPlatenmaatschappijen" class="table table-bordered col-3">
         <thead>
         <tr>
             <th>Platenmaatschappij</th>
@@ -36,18 +36,11 @@
         <tbody>
         <tr v-for="platenmaatschappij in platenmaatschappijen" :key="platenmaatschappij">
             <td>{{platenmaatschappij.naam}}</td>
-            <td class="btn btn-outline-success col-5" ><router-link :to=""></router-link></td>
-            <td class="btn btn-outline-danger col-5">delete</td>
+            <td class="btn btn-outline-success col-5"><router-link :to="'PlatenmaatschappijEdit/' + platenmaatschappij.id">edit</router-link></td>
+            <td class="btn btn-outline-danger col-5" @click="console.log(this)">delete</td>
 
         </tr>
         </tbody>
-<!--        <tbody>-->
-<!--            <tr v-for="platenmaatschappij in platenmaatschappijen" :key="platenmaatschappij">-->
-<!--                <td>{{platenmaatschappij.naam}}</td>-->
-<!--                <td class="btn">delete</td>-->
-<!--                <td class="btn">Edit</td>-->
-<!--            </tr>-->
-<!--        </tbody>-->
     </table>
 
     <router-view></router-view>
@@ -93,6 +86,18 @@ export default {
                 this.loadArtists = true
             }
         },
+        removeArtist() {
+            axios.delete(`/api/platenmaatschappijen/${this.$route.params.id}`)
+                .then(response => {
+                    console.log("success");
+                    this.$router.push("/ArtistList");
+                })
+                .catch(error => {
+                    console.log("failed");
+                    console.error(error);
+                })
+        }
+
     }
 
 };

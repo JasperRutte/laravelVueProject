@@ -1,4 +1,5 @@
 <template>
+
     <nav>
         <br> <button class="btn btn-info ms-4" @click="selectPlatenmaatschappijArtist('artists')">Artists</button> |
         <button class="btn btn-info" @click="selectPlatenmaatschappijArtist('platenmaatschappijen')">Platenmaatschappijen</button>
@@ -87,6 +88,7 @@ export default {
             }
         },
         removeArtist() {
+
             axios.delete(`/api/platenmaatschappijen/${this.$route.params.id}`)
                 .then(response => {
                     console.log("success");
@@ -96,6 +98,7 @@ export default {
                     console.log("failed");
                     console.error(error);
                 })
+
         }
 
     }

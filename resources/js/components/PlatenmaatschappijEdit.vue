@@ -43,14 +43,16 @@ export default {
                 })
         },
         deletePlatenmaatschappij() {
-            axios.delete(`/api/platenmaatschappijen/` + this.$route.params.id)
-                .then(response => {
-                    console.log("deleted")
-                    this.$router.push('/ArtistList');
-                })
-                .catch(error => {
-                    console.log(error)
-                })
+            if (confirm("Are you sure")){
+                axios.delete(`/api/platenmaatschappijen/` + this.$route.params.id)
+                    .then(response => {
+                        console.log("deleted")
+                        this.$router.push('/ArtistList');
+                    })
+                    .catch(error => {
+                        console.log(error)
+                    })
+            }
         }
     }
 }

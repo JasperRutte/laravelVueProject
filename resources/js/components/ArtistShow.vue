@@ -42,15 +42,18 @@ export default {
     methods: {
 
         removeArtist() {
-            axios.delete(`/api/artistinfo/${this.$route.params.id}`)
-                .then(response => {
-                    console.log("success");
-                    this.$router.push("/ArtistList");
-                })
-                .catch(error => {
-                    console.log("failed");
-                    console.error(error);
-                });
+                if (confirm("Are you sure?")){
+                    axios.delete(`/api/artistinfo/${this.$route.params.id}`)
+                    .then(response => {
+                        console.log("success");
+                        this.$router.push("/ArtistList");
+                    })
+                    .catch(error => {
+                        console.log("failed");
+                        console.error(error);
+                    });
+                }
+
             }
         }
 };

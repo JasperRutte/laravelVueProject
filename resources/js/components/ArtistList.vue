@@ -30,14 +30,14 @@
         <thead>
         <tr>
             <th>Platenmaatschappij</th>
-            <th>edit/delete</th>
+<!--            <th>edit/delete</th>-->
         </tr>
         </thead>
         <tbody>
         <tr v-for="platenmaatschappij in platenmaatschappijen" :key="platenmaatschappij">
-            <td>{{platenmaatschappij.naam}}</td>
-            <td class="btn btn-outline-success col-5"><router-link :to="'PlatenmaatschappijEdit/' + platenmaatschappij.id">edit</router-link></td>
-            <td class="btn btn-outline-danger col-5" @click="console.log(this)">delete</td>
+            <td><router-link :to="'PlatenmaatschappijEdit/' + platenmaatschappij.id">{{ platenmaatschappij.naam }}</router-link></td>
+<!--            <td class="btn btn-outline-success col-5"><router-link :to="'PlatenmaatschappijEdit/' + platenmaatschappij.id">edit</router-link></td>-->
+<!--            <td class="btn btn-outline-danger col-5" @click="console.log(this)">delete</td>-->
 
         </tr>
         </tbody>

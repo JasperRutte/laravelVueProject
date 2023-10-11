@@ -29,6 +29,6 @@ Route::delete('artistinfo/{artist}', [App\Http\Controllers\ArtistInfoController:
 Route::get('platenmaatschappijen', [App\Http\Controllers\PlatenmatschappijenController::class, 'index']);
 Route::get('platenmaatschappijen/create', [App\Http\Controllers\PlatenmatschappijenController::class, 'create']);
 Route::post('platenmaatschappijen/create', [App\Http\Controllers\PlatenmatschappijenController::class, 'store']);
-Route::get('platenmaatschappijen/{platenmaatschappij}/edit', [App\Http\Controllers\ArtistInfoController::class, 'edit']); //shows edit post form
-Route::put('platenmaatschappijen/{platenmaatschappij}/edit', [App\Http\Controllers\ArtistInfoController::class, 'update']);
-Route::delete('platenmaatschappijen/{platenmaatschappij}', [App\Http\Controllers\ArtistInfoController::class, 'destroy']);
+Route::get('platenmaatschappijen/{platenmaatschappij}/edit', [App\Http\Controllers\PlatenmatschappijenController::class, 'edit']); //shows edit post form
+Route::put('platenmaatschappijen/{platenmaatschappij}/edit', [App\Http\Controllers\PlatenmatschappijenController::class, 'update']);
+Route::delete('platenmaatschappijen/{platenmaatschappij}', [App\Http\Controllers\PlatenmatschappijenController::class, 'destroy']);

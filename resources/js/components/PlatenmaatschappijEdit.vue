@@ -1,5 +1,6 @@
 <template>
-    <p>{{artist.naam}}</p>
+
+    <p>{{platenmaatschappij.naam}}</p>
 </template>
 
 <script>
@@ -7,15 +8,20 @@ import axios from "axios";
 
 export default {
     name: 'App',
-    artist: "",
+    data() {
+        return{
+            hasLoaded: false,
+            platenmaatschappij: {
+                naam: ""
+            }
+        }
+    },
 
     mounted() {
 
-        console.log(this.$route)
-        // artistinfo/{artist}/edit
-        axios.get(`/api/platenmaatschappijen/`+this.$route.params.id+`/edit`)
+        axios.get(`/api/platenmaatschappijen/` + this.$route.params.id + `/edit`)
             .then(response => {
-                this.artist = response.data.item;
+                this.platenmaatschappij = response.data.item;
                 console.log(response.data);
                 this.hasLoaded = true
 
@@ -24,9 +30,6 @@ export default {
                 console.error(error);
             });
     },
-    methods: {
-
-    }
 }
 
 </script>

@@ -2,8 +2,8 @@
 
     <form @submit.prevent="UpdatePlatenmaatschappij()" v-if="hasLoaded">
         <input type="text" name="naam" v-model="platenmaatschappij.naam">
-        <p>{{platenmaatschappij.id}}</p>
         <br><button type="submit" class="btn btn-success">Update</button>
+        <button class="btn btn-danger" @click="deletePlatenmaatschappij()">delete</button>
     </form>
 </template>
 
@@ -39,6 +39,16 @@ export default {
                     this.$router.push('/ArtistList');
                 })
                 .catch(error =>{
+                    console.log(error)
+                })
+        },
+        deletePlatenmaatschappij() {
+            axios.delete(`/api/platenmaatschappijen/` + this.$route.params.id)
+                .then(response => {
+                    console.log("deleted")
+                    this.$router.push('/ArtistList');
+                })
+                .catch(error => {
                     console.log(error)
                 })
         }

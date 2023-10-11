@@ -1,6 +1,10 @@
 <template>
 
-    <p>{{platenmaatschappij.naam}}</p>
+    <form @submit.prevent="UpdatePlatenmaatschappij()" v-if="hasLoaded">
+        <input type="text" name="naam" v-model="platenmaatschappij.naam">
+        <p>{{platenmaatschappij.id}}</p>
+        <br><button type="submit" class="btn btn-success">Update</button>
+    </form>
 </template>
 
 <script>
@@ -11,9 +15,6 @@ export default {
     data() {
         return{
             hasLoaded: false,
-            platenmaatschappij: {
-                naam: ""
-            }
         }
     },
 
@@ -30,6 +31,18 @@ export default {
                 console.error(error);
             });
     },
+    methods: {
+        UpdatePlatenmaatschappij() {
+            axios.put(`/api/platenmaatschappijen/` +  this.$route.params.id + `/edit`, this.platenmaatschappij)
+                .then(response => {
+                    console.log("success")
+                    this.$router.push('/ArtistList');
+                })
+                .catch(error =>{
+                    console.log(error)
+                })
+        }
+    }
 }
 
 </script>

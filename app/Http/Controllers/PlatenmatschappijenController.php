@@ -39,12 +39,13 @@ class PlatenmatschappijenController extends Controller
 
     public function update(Request $request, Platenmaatschappijen $platenmaatschappijen)
     {
-        $validated = $request->validate(["platenmaatschappij" =>'required|regex:/^[a-zA-Z , .]+$/u|max:255']);
+        $validated = $request->validate(["naam" =>'required|regex:/^[a-zA-Z , .]+$/u|max:255']);
 
-        $upDatedPlatenmaatschappij = Platenmaatschappijen::where("id", $request->id)->first();
-        $upDatedPlatenmaatschappij->platenmaatschappij = $request->platenmaatschappij;
-        $upDatedPlatenmaatschappij->save();
+        $updatedPlatenmaatschappij = Platenmaatschappijen::where("id", $request->id)->first();
+        $updatedPlatenmaatschappij->naam = $request->naam;
+        $updatedPlatenmaatschappij->save();
     }
+
 
     public function destroy($platenmaatschappij)
     {

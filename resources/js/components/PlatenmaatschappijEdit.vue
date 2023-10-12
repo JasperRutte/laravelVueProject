@@ -1,6 +1,9 @@
 <template>
 
     <form @submit.prevent="UpdatePlatenmaatschappij()" v-if="hasLoaded">
+        <div v-if="errors" class="alert alert-danger" role="alert">
+            This is a danger alert—check it out!
+        </div>
         <input type="text" name="naam" v-model="platenmaatschappij.naam">
         <br><button type="submit" class="btn btn-success">Update</button>
         <button class="btn btn-danger" @click="deletePlatenmaatschappij()">delete</button>
@@ -15,6 +18,7 @@ export default {
     data() {
         return{
             hasLoaded: false,
+            errors: false,
         }
     },
 
@@ -39,6 +43,7 @@ export default {
                     this.$router.push('/ArtistList');
                 })
                 .catch(error =>{
+                    this.errors = true
                     console.log(error)
                 })
         },

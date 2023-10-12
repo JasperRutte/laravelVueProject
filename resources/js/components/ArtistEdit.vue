@@ -2,6 +2,9 @@
 <!--    <p>{{ item.id }}</p>-->
     <br>
     <form @submit.prevent="updateForm" v-if="hasLoaded">
+        <div v-if="errors" class="alert alert-danger" role="alert">
+            Please fill in all the questions
+        </div>
 <!--        <p>{{artist.id}}</p>-->
         <input name="naam" v-model="artist.naam"> <br>
         <input name="bandleden" v-model="artist.bandleden">
@@ -38,6 +41,7 @@ export default {
         return {
             hasLoaded: false,
             buttonPressed: false,
+            errors: false,
         }
     },
     mounted() {
@@ -66,6 +70,7 @@ export default {
                     // Handle success or redirection here
                 })
                 .catch(error => {
+                    this.errors = true
                     console.log("failed")
                     console.log(error)
                 })

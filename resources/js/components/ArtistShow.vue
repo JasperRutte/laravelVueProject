@@ -4,10 +4,8 @@
         <p>genre: {{artist.genre}}</p>
         <p>bandleden: {{artist.bandleden}}</p>
 
-
+        <router-link class="btn btn-success" :to="'../ArtistEdit/'+ artist.id">Edit</router-link>
         <button class="btn btn-danger" @click="removeArtist">delete</button>
-
-        <router-link :to="'../ArtistEdit/'+ artist.id">Edit'</router-link>
         <router-view></router-view>
 
     </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\ArtistInfo;
 use App\Models\Platenmaatschappijen;
 use Illuminate\Http\Request;
+use function Laravel\Prompts\alert;
 
 class ArtistInfoController extends Controller
 {
@@ -30,7 +31,7 @@ class ArtistInfoController extends Controller
         $newArtist->bandleden = $validated["bandleden"];
         $newArtist->genre = $validated["genre"];
 
-        $newArtist->save();
+        $newArtist->save();;
     }
 
 

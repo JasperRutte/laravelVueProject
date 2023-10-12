@@ -2,8 +2,10 @@
     <br><button id="artist" class="btn btn-info ms-4" @click="selectPlatenmaatschappijArtist('artist')">create artist</button> |
     <button id="platenmaatschappij" class="btn btn-info" @click="selectPlatenmaatschappijArtist('platenmaatschappij')">create platenmaatschappij</button>
 
-
     <div v-if="createArtist" class="col-6 m-5">
+        <div v-if="errors" class="alert alert-danger" role="alert">
+            Please fill in all the questions
+        </div>
         <form @submit.prevent="submitArtist">
             <h1>Maak een artiest aan</h1>
 
@@ -44,6 +46,9 @@
 
 
     <div v-else-if="createPlatenmaatschappij" class="col-6 m-5">
+        <div v-if="errors" class="alert alert-danger" role="alert">
+            Please fill in all the questions
+        </div>
         <form @submit.prevent="submitPlatenmaatschappij">
             <h1>Maak een platenmaatschappij</h1>
             <input type="text" v-model="platenmaatschappij.naam" class="form-control col-2">
@@ -72,9 +77,7 @@ export default {
             platenmaatschappij : {
               naam: ""
             },
-            errors: {
-
-            },
+            errors: false,
             createPlatenmaatschappij: false,
             createArtist: false,
         };
@@ -83,24 +86,30 @@ export default {
         submitArtist() {
             axios.post('/api/artistinfo/create', this.artist)
                 .then(response => {
+                    this.errors = false
                     this.artist.naam = "";
                     this.artist.bandleden = "";
                     this.artist.genre = "";
                 })
                 .catch(error => {
+                    this.errors = true;
                     console.error(error.response.data.message);
                 });
         },
         submitPlatenmaatschappij(){
             axios.post('/api/platenmaatschappijen/create', this.platenmaatschappij)
                 .then(response => {
+                    this.errors = false
                     this.platenmaatschappij.naam = "";
                 })
                 .catch(error => {
+                    this.errors = true;
+                    alert("error")
                     console.log(error.response.data.message)
                 })
         },
         selectPlatenmaatschappijArtist(selection) {
+            this.errors = false
             if (selection === "platenmaatschappij") {
                 this.createPlatenmaatschappij = true
                 this.createArtist = false

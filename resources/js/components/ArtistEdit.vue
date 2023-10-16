@@ -24,10 +24,10 @@
         <label for="dnb">D'n B</label><br>
 
         <input v-model="artist.genre" type="radio" id="rap" name="genre" value="rap" >
-        <label for="dnb">Rap</label><br>
-
-        <button type="submit" class="btn btn-primary">Update</button>
+        <label for="rap">Rap</label><br>
     </form>
+
+    <button type="submit" @click="updateForm" class="btn btn-primary">Update</button>
 </template>
 
 

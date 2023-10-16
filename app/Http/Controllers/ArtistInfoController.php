@@ -17,6 +17,12 @@ class ArtistInfoController extends Controller
 
     }
 
+    public function create()
+    {
+        $platenmaatschappijen = Platenmaatschappijen::all();
+        return ['platenmaatschappijen' => $platenmaatschappijen];
+    }
+
 
     public function store(Request $request)
     {

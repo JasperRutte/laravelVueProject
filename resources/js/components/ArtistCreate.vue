@@ -34,6 +34,10 @@
             <input v-model="artist.genre" type="radio" id="rap" name="genre" value="rap" >
             <label for="dnb">Rap</label><br>
 
+            <select>
+                <option v-for="platenmaatschappij in platenmaatschappijen" :key="platenmaatschappij">{{platenmaatschappij.naam}}</option>
+            </select>
+
             <div class="row mt-2">
                 <div class="control-group col-12 text-center">
                     <button type="submit" id="btn-submit" class="col-8 btn btn-success">
@@ -69,18 +73,28 @@ export default {
     data() {
         return {
             artistCreate: false,
+            platenmaatschappij: {
+                naam: ""
+            },
             artist: {
                 naam: "",
                 bandleden: "",
                 genre: "",
             },
-            platenmaatschappij : {
-              naam: ""
-            },
+            platenmaatschappijen: [],
             errors: false,
             createPlatenmaatschappij: false,
             createArtist: false,
         };
+    },
+    mounted() {
+        axios.get('/api/platenmaatschappijen')
+            .then(response => {
+                this.platenmaatschappijen = response.data;
+            })
+            .catch(error => {
+                console.error('Error fetching items:', error);
+            });
     },
     methods: {
         submitArtist() {

@@ -1,13 +1,12 @@
 <template>
-
-    <form @submit.prevent="UpdatePlatenmaatschappij()" v-if="hasLoaded">
+    <form v-if="hasLoaded">
         <div v-if="errors" class="alert alert-danger" role="alert">
-            This is a danger alert—check it out!
+            Please fill in the form and use the correct symbols
         </div>
         <input type="text" name="naam" v-model="platenmaatschappij.naam">
-        <br><button type="submit" class="btn btn-success">Update</button>
-        <button class="btn btn-danger" @click="deletePlatenmaatschappij()">delete</button>
     </form>
+    <br><button class="btn btn-success" @click="UpdatePlatenmaatschappij">Update</button>
+    <button class="btn btn-danger" @click="deletePlatenmaatschappij">delete</button>
 </template>
 
 <script>
@@ -23,7 +22,6 @@ export default {
     },
 
     mounted() {
-
         axios.get(`/api/platenmaatschappijen/` + this.$route.params.id + `/edit`)
             .then(response => {
                 this.platenmaatschappij = response.data.item;
@@ -37,21 +35,23 @@ export default {
     },
     methods: {
         UpdatePlatenmaatschappij() {
-            axios.put(`/api/platenmaatschappijen/` +  this.$route.params.id + `/edit`, this.platenmaatschappij)
-                .then(response => {
-                    console.log("success")
-                    this.$router.push('/ArtistList');
-                })
-                .catch(error =>{
-                    this.errors = true
-                    console.log(error)
-                })
+            if (confirm("Are you sure")) {
+                console.log("test")
+                axios.put(`/api/platenmaatschappijen/` + this.$route.params.id + `/edit`, this.platenmaatschappij)
+                    .then(response => {
+                        this.$router.push('/ArtistList');
+                    })
+                    .catch(error => {
+                        this.errors = true
+                        console.log(error)
+                    })
+            }
         },
         deletePlatenmaatschappij() {
-            if (confirm("Are you sure")){
+            if (confirm("Are you sure???")){
+                console.log("True")
                 axios.delete(`/api/platenmaatschappijen/` + this.$route.params.id)
                     .then(response => {
-                        console.log("deleted")
                         this.$router.push('/ArtistList');
                     })
                     .catch(error => {

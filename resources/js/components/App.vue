@@ -22,7 +22,6 @@ export default {
         };
     },
     mounted() {
-        // Use axios.get to assign data to the 'items' variable
         axios.get('/api/artistinfo')
             .then(response => {
                 this.items = response.data;

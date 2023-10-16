@@ -50,6 +50,8 @@ export default {
                         console.log("failed");
                         console.error(error);
                     });
+                } else {
+                    console.log("Test")
                 }
 
             }

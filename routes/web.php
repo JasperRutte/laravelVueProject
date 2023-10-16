@@ -16,5 +16,3 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
-//Route::get('/resources/js/components/', [\App\Http\Controllers\ArtistInfoController::class, 'ArtistCreate']);

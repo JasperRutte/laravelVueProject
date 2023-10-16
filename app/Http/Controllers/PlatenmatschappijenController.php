@@ -10,8 +10,7 @@ class PlatenmatschappijenController extends Controller
 
     public function index()
     {
-        //fetch all artists from DB
-        return Platenmaatschappijen::all(); // return view with options to create an artist, and all the record labels
+        return Platenmaatschappijen::all();
 
     }
 
@@ -24,14 +23,12 @@ class PlatenmatschappijenController extends Controller
 
         $newPlatenmaatschappij = new Platenmaatschappijen();
         $newPlatenmaatschappij->naam = $validated['naam'];
-//        $newArtist->genre = $validated["genre"];
         $newPlatenmaatschappij->save();
     }
 
 
     public function edit(Platenmaatschappijen $platenmaatschappijen, $id)
     {
-//        dd($id);
         $item = Platenmaatschappijen::find($id);
         return response()->json(['item' => $item]);
 
@@ -50,7 +47,6 @@ class PlatenmatschappijenController extends Controller
     public function destroy($platenmaatschappij)
     {
         $deletedPlatenmaatschappij = Platenmaatschappijen::find($platenmaatschappij);
-
         $deletedPlatenmaatschappij->delete();
     }
 }

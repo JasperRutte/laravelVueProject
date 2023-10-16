@@ -70,7 +70,5 @@ class ArtistInfoController extends Controller
         $deletedArtist = ArtistInfo::find($artist);
 
         $deletedArtist->delete();
-//        dd($ArtistInfo);
-//        return response()->json(['message' => 'Artist deleted successfully']);
     }
 }

@@ -1,7 +1,7 @@
 <template>
 <!--    <p>{{ item.id }}</p>-->
     <br>
-    <form @submit.prevent="updateForm" v-if="hasLoaded">
+    <form v-if="hasLoaded">
         <div v-if="errors" class="alert alert-danger" role="alert">
             Please fill in all the questions
         </div>
@@ -47,7 +47,6 @@ export default {
     mounted() {
 
         console.log(this.$route)
-        // artistinfo/{artist}/edit
         axios.get(`/api/artistinfo/`+this.$route.params.id+`/edit`)
             .then(response => {
                 this.artist = response.data.item;
@@ -67,7 +66,6 @@ export default {
                     console.log(this.artist);
                     this.buttonPressed = true;
                     this.$router.push('/ArtistList');
-                    // Handle success or redirection here
                 })
                 .catch(error => {
                     this.errors = true

@@ -19,16 +19,16 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('artistinfo', [App\Http\Controllers\ArtistInfoController::class, 'index']);
-Route::get('artistinfo/create', [App\Http\Controllers\ArtistInfoController::class, 'create']); //shows create post form
+Route::get('artistinfo/create', [App\Http\Controllers\ArtistInfoController::class, 'create']);
 Route::post('artistinfo/create', [App\Http\Controllers\ArtistInfoController::class, 'store']);
 Route::get('artistinfo/{artist}', [App\Http\Controllers\ArtistInfoController::class, 'show']);
-Route::get('artistinfo/{artist}/edit', [App\Http\Controllers\ArtistInfoController::class, 'edit']); //shows edit post form
+Route::get('artistinfo/{artist}/edit', [App\Http\Controllers\ArtistInfoController::class, 'edit']);
 Route::put('artistinfo/{artist}/edit', [App\Http\Controllers\ArtistInfoController::class, 'update']);
 Route::delete('artistinfo/{artist}', [App\Http\Controllers\ArtistInfoController::class, 'destroy']);
 
 Route::get('platenmaatschappijen', [App\Http\Controllers\PlatenmatschappijenController::class, 'index']);
 Route::get('platenmaatschappijen/create', [App\Http\Controllers\PlatenmatschappijenController::class, 'create']);
 Route::post('platenmaatschappijen/create', [App\Http\Controllers\PlatenmatschappijenController::class, 'store']);
-Route::get('platenmaatschappijen/{platenmaatschappij}/edit', [App\Http\Controllers\PlatenmatschappijenController::class, 'edit']); //shows edit post form
+Route::get('platenmaatschappijen/{platenmaatschappij}/edit', [App\Http\Controllers\PlatenmatschappijenController::class, 'edit']);
 Route::put('platenmaatschappijen/{platenmaatschappij}/edit', [App\Http\Controllers\PlatenmatschappijenController::class, 'update']);
 Route::delete('platenmaatschappijen/{platenmaatschappij}', [App\Http\Controllers\PlatenmatschappijenController::class, 'destroy']);

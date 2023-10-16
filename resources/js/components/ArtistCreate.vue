@@ -1,48 +1,51 @@
 <template>
-    <div class="">
-        <br><button id="artist" class="btn btn-secondary mx-2" @click="selectPlatenmaatschappijArtist('artist')">create artist</button>
-        <button id="platenmaatschappij" class="btn btn-secondary" @click="selectPlatenmaatschappijArtist('platenmaatschappij')">create platenmaatschappij</button>
+    <div class="col-md-12 text-center">
+        <br><button class="btn btn-light me-1" @click="selectPlatenmaatschappijArtist('artist')">create artist</button>
+        <button class="btn btn-light" @click="selectPlatenmaatschappijArtist('platenmaatschappij')">create platenmaatschappij</button>
     </div>
 
-    <div id="center" v-if="createArtist">
+    <div id="center" v-if="createArtist" class="shadow p-3 mb-5 bg-white shadow p-3 bg-white rounded">
         <div v-if="errors" class="alert alert-danger" role="alert">
             Please fill in all the questions
         </div>
         <form @submit.prevent="submitArtist">
-            <h1>Maak een artiest aan</h1>
+            <h1 class="display">Maak een artiest aan</h1>
 
-            <label ref="form" for="naam">naam</label>
+            <label ref="form" for="naam">Naam</label>
             <input v-model="artist.naam" type="text" id="naam" class="form-control" name="naam">
-
-
-            <label for="bandleden">bandleden</label>
-            <input v-model="artist.bandleden" type="text" id="naam" class="form-control" name="naam">
-
+            <br>
+            <label for="bandleden">Bandleden</label>
+            <textarea v-model="artist.bandleden" type="text" id="naam" class="form-control" name="naam"></textarea>
+            <br>
+            <label for="platenmaatschappij">Platenmaatschappij</label>
+            <select class="form-select">
+                <option v-for="platenmaatschappij in platenmaatschappijen" :key="platenmaatschappij">{{platenmaatschappij.naam}}</option>
+            </select>
+            <br>
 
             <label for="genre">Genre:</label><br>
 
-            <input v-model="artist.genre" type="radio" id="rock" name="genre" value="Rock" >
-            <label for="rock">Rock</label><br>
+            <input v-model="artist.genre" type="radio" id="rock" name="genre" value="Rock" class="btn-check">
+            <label class="form-check-label btn" for="rock">Rock</label>
 
-            <input v-model="artist.genre" type="radio" id="pop" name="genre" value="Pop">
-            <label for="pop">Pop</label><br>
+            <input v-model="artist.genre" type="radio" id="pop" name="genre" value="Pop" class="btn-check">
+            <label class="form-check-label btn" for="pop">Pop</label>
 
-            <input v-model="artist.genre" type="radio" id="metal" name="genre" value="Metal">
-            <label for="metal">Metal</label><br>
+            <input v-model="artist.genre" type="radio" id="metal" name="genre" value="Metal" class="btn-check">
+            <label class="form-check-label btn"  for="metal">Metal</label>
 
-            <input v-model="artist.genre" type="radio" id="dnb" name="genre" value="D 'n B" >
-            <label for="dnb">D'n B</label><br>
+            <input v-model="artist.genre" type="radio" id="dnb" name="genre" value="D 'n B" class="btn-check">
+            <label class="form-check-label btn" for="dnb">D'n B</label>
 
-            <input v-model="artist.genre" type="radio" id="rap" name="genre" value="rap" >
-            <label for="dnb">Rap</label><br>
+            <input v-model="artist.genre" type="radio" id="rap" name="genre" value="rap" class="btn-check">
+            <label class="form-check-label btn" for="rap">Rap</label>
+<!--            <input v-model="artist.genre" type="radio" id="rock" name="genre" value="Rock" class="btn-check">-->
+<!--            <label class="form-check-label btn" for="rock">Rock</label>-->
 
-            <select>
-                <option v-for="platenmaatschappij in platenmaatschappijen" :key="platenmaatschappij">{{platenmaatschappij.naam}}</option>
-            </select>
 
             <div class="row mt-2">
                 <div class="control-group col-12 text-center">
-                    <button type="submit" id="btn-submit" class="col-8 btn btn-success">
+                    <button type="submit" id="btn-submit" class="col-12 btn btn-success btn-block">
                         Create artist
                     </button>
                 </div>
@@ -51,16 +54,16 @@
     </div>
 
 
-    <div id="center" v-else-if="createPlatenmaatschappij">
+    <div id="center" v-else-if="createPlatenmaatschappij" class="shadow p-3 bg-white rounded">
         <div v-if="errors" class="alert alert-danger" role="alert">
             Please fill in all the questions
         </div>
         <form @submit.prevent="submitPlatenmaatschappij">
             <h1>Maak een platenmaatschappij</h1>
             <input type="text" v-model="platenmaatschappij.naam" class="form-control col-2">
-            <button type="submit" id="btn-submit" class="btn btn-success mt-3">
-                Create platenmaatschappij
-            </button>
+                <button type="submit" id="btn-submit" class="col-12 btn btn-success mt-3 btn-block">
+                    Create
+                </button>
         </form>
     </div>
 
@@ -106,6 +109,7 @@ export default {
                     this.artist.naam = "";
                     this.artist.bandleden = "";
                     this.artist.genre = "";
+                    this.artist.platenmaatschappij = "";
                 })
                 .catch(error => {
                     this.errors = true;
@@ -140,16 +144,4 @@ export default {
 </script>
 
 <style lang="css">
-     #center {
-         margin-left: auto;
-         width: 30%;
-         border: 3px solid darkgrey;
-         padding: 10px;
-         border-radius: 20px ;
-     }
-
-    body {
-        background-color: #1a202c;
-        color: white;
-    }
 </style>

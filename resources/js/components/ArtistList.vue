@@ -1,11 +1,10 @@
 <template>
+    <div class="col-md-12 text-center">
+        <button class="btn btn-light me-1" @click="selectPlatenmaatschappijArtist('artists')">Artists</button>
+        <button class="btn btn-light" @click="selectPlatenmaatschappijArtist('platenmaatschappijen')">Platenmaatschappijen</button>
+    </div>
 
-    <nav>
-        <br> <button class="btn btn-secondary mx-2" @click="selectPlatenmaatschappijArtist('artists')">Artists</button>
-        <button class="btn btn-secondary" @click="selectPlatenmaatschappijArtist('platenmaatschappijen')">Platenmaatschappijen</button>
-    </nav>
-    <div>
-        <table id="center" v-if="loadArtists" class="table table-dark">
+    <table id="center" v-if="loadArtists" class="table">
             <thead>
             <tr>
                 <th scope="col">naam</th>
@@ -24,19 +23,21 @@
             </tbody>
         </table>
 
-        <table id="center" v-if="loadPlatenmaatschappijen" class="table table-dark">
+        <table id="center" v-if="loadPlatenmaatschappijen" class="table ">
             <thead>
             <tr>
                 <th scope="col">naam</th>
+                <th scope="col">id</th>
             </tr>
             </thead>
             <tbody>
             <tr v-for="platenmaatschappij in platenmaatschappijen" :key="platenmaatschappij">
                 <td><router-link :to="'PlatenmaatschappijEdit/' + platenmaatschappij.id">{{ platenmaatschappij.naam }}</router-link></td>
+                <td>{{platenmaatschappij.id}}</td>
             </tr>
             </tbody>
         </table>
-    </div>
+
 
     <router-view></router-view>
 </template>
@@ -101,10 +102,5 @@ export default {
 </script>
 
 <style lang="css">
-    #center {
-        margin: auto;
-        width: 50%;
-        border: 3px solid darkgrey;
-        padding: 10px;
-    }
+
 </style>

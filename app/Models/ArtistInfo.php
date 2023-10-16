@@ -14,11 +14,11 @@ class ArtistInfo extends Model
         "naam",
         "bandleden",
         "genre",
-        "platenmaatschappijen_id"
+        "platenmaatschappij"
     ];
 
     public function platenmaatschappijen(){
-        return $this -> hasOne(Platenmaatschappijen::class, "id", "platenmaatschappijen_id");
+        return $this -> hasOne(Platenmaatschappijen::class, "id", "platenmaatschappij");
     }
 };
 

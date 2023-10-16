@@ -1,6 +1,6 @@
 <template>
     <br>
-    <form v-if="hasLoaded">
+    <form v-if="hasLoaded" id="center">
         <div v-if="errors" class="alert alert-danger" role="alert">
             Please fill in all the questions
         </div>
@@ -79,7 +79,5 @@ export default {
 </script>
 
 <style>
-    body {
-        color: white;
-    }
+
 </style>

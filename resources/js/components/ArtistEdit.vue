@@ -1,11 +1,10 @@
 <template>
-<!--    <p>{{ item.id }}</p>-->
     <br>
     <form v-if="hasLoaded">
         <div v-if="errors" class="alert alert-danger" role="alert">
             Please fill in all the questions
         </div>
-<!--        <p>{{artist.id}}</p>-->
+
         <input name="naam" v-model="artist.naam"> <br>
         <input name="bandleden" v-model="artist.bandleden">
 
@@ -78,3 +77,9 @@ export default {
 
 
 </script>
+
+<style>
+    body {
+        color: white;
+    }
+</style>

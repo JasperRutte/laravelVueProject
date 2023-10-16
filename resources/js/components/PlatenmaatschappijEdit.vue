@@ -36,7 +36,6 @@ export default {
     methods: {
         UpdatePlatenmaatschappij() {
             if (confirm("Are you sure")) {
-                console.log("test")
                 axios.put(`/api/platenmaatschappijen/` + this.$route.params.id + `/edit`, this.platenmaatschappij)
                     .then(response => {
                         this.$router.push('/ArtistList');
@@ -49,7 +48,6 @@ export default {
         },
         deletePlatenmaatschappij() {
             if (confirm("Are you sure???")){
-                console.log("True")
                 axios.delete(`/api/platenmaatschappijen/` + this.$route.params.id)
                     .then(response => {
                         this.$router.push('/ArtistList');

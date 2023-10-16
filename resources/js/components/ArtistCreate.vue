@@ -1,8 +1,10 @@
 <template>
-    <br><button id="artist" class="btn btn-info ms-4" @click="selectPlatenmaatschappijArtist('artist')">create artist</button> |
-    <button id="platenmaatschappij" class="btn btn-info" @click="selectPlatenmaatschappijArtist('platenmaatschappij')">create platenmaatschappij</button>
+    <div class="">
+        <br><button id="artist" class="btn btn-secondary mx-2" @click="selectPlatenmaatschappijArtist('artist')">create artist</button>
+        <button id="platenmaatschappij" class="btn btn-secondary" @click="selectPlatenmaatschappijArtist('platenmaatschappij')">create platenmaatschappij</button>
+    </div>
 
-    <div v-if="createArtist" class="col-6 m-5">
+    <div id="center" v-if="createArtist">
         <div v-if="errors" class="alert alert-danger" role="alert">
             Please fill in all the questions
         </div>
@@ -49,7 +51,7 @@
     </div>
 
 
-    <div v-else-if="createPlatenmaatschappij" class="col-6 m-5">
+    <div id="center" v-else-if="createPlatenmaatschappij">
         <div v-if="errors" class="alert alert-danger" role="alert">
             Please fill in all the questions
         </div>
@@ -137,6 +139,17 @@ export default {
 
 </script>
 
-<style lang="scss" scoped>
+<style lang="css">
+     #center {
+         margin-left: auto;
+         width: 30%;
+         border: 3px solid darkgrey;
+         padding: 10px;
+         border-radius: 20px ;
+     }
 
+    body {
+        background-color: #1a202c;
+        color: white;
+    }
 </style>

@@ -1,45 +1,42 @@
 <template>
 
     <nav>
-        <br> <button class="btn btn-info ms-4" @click="selectPlatenmaatschappijArtist('artists')">Artists</button> |
-        <button class="btn btn-info" @click="selectPlatenmaatschappijArtist('platenmaatschappijen')">Platenmaatschappijen</button>
+        <br> <button class="btn btn-secondary mx-2" @click="selectPlatenmaatschappijArtist('artists')">Artists</button>
+        <button class="btn btn-secondary" @click="selectPlatenmaatschappijArtist('platenmaatschappijen')">Platenmaatschappijen</button>
     </nav>
+    <div>
+        <table id="center" v-if="loadArtists" class="table table-dark">
+            <thead>
+            <tr>
+                <th scope="col">naam</th>
+                <th scope="col">bandleden</th>
+                <th scope="col">genre</th>
+                <th scope="col">id</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="artist in artists" :key="artist.id">
+                <td><router-link :to="'ArtistShow/' + artist.id">{{artist.naam}}</router-link></td>
+                <td>{{artist.bandleden}}</td>
+                <td>{{artist.genre}}</td>
+                <td>{{artist.id}}</td>
+            </tr>
+            </tbody>
+        </table>
 
-    <table class="table table-bordered" v-if="loadArtists">
-        <thead>
-        <tr>
-            <th scope="col">naam</th>
-            <th scope="col">bandleden</th>
-            <th scope="col">genre</th>
-            <th scope="col">id</th>
-        </tr>
-        </thead>
-
-        <tbody>
-        <tr v-for="artist in artists" :key="artist.id">
-            <td><router-link :to="'ArtistShow/' + artist.id">{{artist.naam}}</router-link></td>
-            <td>{{artist.bandleden}}</td>
-            <td>{{artist.genre}}</td>
-            <td>{{artist.id}}</td>
-        </tr>
-        </tbody>
-    </table>
-
-
-
-    <table v-else-if="loadPlatenmaatschappijen" class="table table-bordered col-3">
-        <thead>
-        <tr>
-            <th>Platenmaatschappij</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr v-for="platenmaatschappij in platenmaatschappijen" :key="platenmaatschappij">
-            <td><router-link :to="'PlatenmaatschappijEdit/' + platenmaatschappij.id">{{ platenmaatschappij.naam }}</router-link></td>
-
-        </tr>
-        </tbody>
-    </table>
+        <table id="center" v-if="loadPlatenmaatschappijen" class="table table-dark">
+            <thead>
+            <tr>
+                <th scope="col">naam</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="platenmaatschappij in platenmaatschappijen" :key="platenmaatschappij">
+                <td><router-link :to="'PlatenmaatschappijEdit/' + platenmaatschappij.id">{{ platenmaatschappij.naam }}</router-link></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 
     <router-view></router-view>
 </template>
@@ -102,3 +99,12 @@ export default {
 
 };
 </script>
+
+<style lang="css">
+    #center {
+        margin: auto;
+        width: 50%;
+        border: 3px solid darkgrey;
+        padding: 10px;
+    }
+</style>

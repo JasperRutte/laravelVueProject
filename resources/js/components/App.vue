@@ -1,7 +1,21 @@
 <template>
+    <nav class="navbar navbar-expand-lg navbar-light bg-secondary ">
+        <div id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item mx-2">
+                    <router-link to="/ArtistList">List</router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link to="/ArtistCreate">Create</router-link>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
 <nav class="text-center mt-3" >
-    <router-link to="../ArtistList" class="btn btn-primary">List</router-link> |
-    <router-link to="../ArtistCreate" class="btn btn-primary">Create</router-link>
+
+
+
 </nav>
 
     <router-view></router-view>
@@ -35,3 +49,10 @@ export default {
 
 
 </script>
+
+<style lang="css">
+a {
+    color: white; /* blue colors for links too */
+    text-decoration: none; /* no underline */
+}
+</style>

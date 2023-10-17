@@ -30,12 +30,14 @@ class ArtistInfoController extends Controller
             'naam' => 'required|regex:/^[a-zA-Z ,]+$/u|max:255',
             'bandleden' => 'required|regex:/^[a-zA-Z ,]+$/u|max:800',
             'genre' => 'required',
+            'platenmaatschappij' => 'required'
         ]);
 
         $newArtist = new ArtistInfo;
         $newArtist->naam = $validated["naam"];
         $newArtist->bandleden = $validated["bandleden"];
         $newArtist->genre = $validated["genre"];
+        $newArtist->platenmaatschappij = $validated['platenmaatschappij'];
 
         $newArtist->save();;
     }
@@ -62,12 +64,14 @@ class ArtistInfoController extends Controller
             'naam' => 'required|regex:/^[a-zA-Z , .]+$/u|max:255',
             'bandleden' => 'required|regex:/^[a-zA-Z , .]+$/u|max:800',
             'genre' => 'required',
+            'platenmaatschappij' => 'required'
         ]);
 
         $upDatedArtist = ArtistInfo::where("id", $request->id)->first();
         $upDatedArtist->naam = $request->naam;
         $upDatedArtist->bandleden = $request->bandleden;
         $upDatedArtist->genre = $request->genre;
+        $upDatedArtist->platenmaatschappij = $request->platenmaatschappij;
         $upDatedArtist->save();
     }
 

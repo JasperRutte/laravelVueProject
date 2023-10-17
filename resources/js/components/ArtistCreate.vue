@@ -18,7 +18,7 @@
             <textarea v-model="artist.bandleden" type="text" id="naam" class="form-control" name="naam"></textarea>
             <br>
             <label for="platenmaatschappij">Platenmaatschappij</label>
-            <select class="form-select">
+            <select v-model="artist.platenmaatschappij"  class="form-select">
                 <option v-for="platenmaatschappij in platenmaatschappijen" :key="platenmaatschappij">{{platenmaatschappij.naam}}</option>
             </select>
             <br>
@@ -39,8 +39,6 @@
 
             <input v-model="artist.genre" type="radio" id="rap" name="genre" value="rap" class="btn-check">
             <label class="form-check-label btn" for="rap">Rap</label>
-<!--            <input v-model="artist.genre" type="radio" id="rock" name="genre" value="Rock" class="btn-check">-->
-<!--            <label class="form-check-label btn" for="rock">Rock</label>-->
 
 
             <div class="row mt-2">
@@ -85,6 +83,7 @@ export default {
                 naam: "",
                 bandleden: "",
                 genre: "",
+                platenmaatschappij:""
             },
             platenmaatschappijen: [],
             errors: false,

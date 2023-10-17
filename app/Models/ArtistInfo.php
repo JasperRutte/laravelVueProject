@@ -17,9 +17,10 @@ class ArtistInfo extends Model
         "platenmaatschappij"
     ];
 
-    public function platenmaatschappijen(){
-        return $this -> hasOne(Platenmaatschappijen::class, "id", "platenmaatschappij");
-    }
-};
+//    public function platenmaatschappijen(){
+//        return $this -> hasOne(Platenmaatschappijen::class, "id", "platenmaatschappij");
+//    }
+//};
 
 
+}

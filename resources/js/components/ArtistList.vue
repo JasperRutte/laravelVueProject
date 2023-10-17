@@ -10,6 +10,7 @@
                 <th scope="col">naam</th>
                 <th scope="col">bandleden</th>
                 <th scope="col">genre</th>
+                <th scope="col">platenmaatschappij</th>
                 <th scope="col">id</th>
             </tr>
             </thead>
@@ -18,6 +19,7 @@
                 <td><router-link :to="'ArtistShow/' + artist.id">{{artist.naam}}</router-link></td>
                 <td>{{artist.bandleden}}</td>
                 <td>{{artist.genre}}</td>
+                <td>{{artist.platenmaatschappij}}</td>
                 <td>{{artist.id}}</td>
             </tr>
             </tbody>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ArtistInfo;
 use App\Models\Platenmaatschappijen;
 use Illuminate\Http\Request;
 
@@ -46,7 +47,13 @@ class PlatenmatschappijenController extends Controller
 
     public function destroy($platenmaatschappij)
     {
-        $deletedPlatenmaatschappij = Platenmaatschappijen::find($platenmaatschappij);
-        $deletedPlatenmaatschappij->delete();
+        $test = Platenmaatschappijen::find($platenmaatschappij);
+//        dd($test->naam);
+
+        $ttest = ArtistInfo::where('platenmaatschappij', $test->naam)->exists();
+        if (!$ttest){
+            $deletedPlatenmaatschappij = Platenmaatschappijen::find($platenmaatschappij);
+            $deletedPlatenmaatschappij->delete();
+        }
     }
 }

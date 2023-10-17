@@ -77,6 +77,7 @@ class ArtistInfoController extends Controller
 
     public function destroy($artist)
     {
+
         $deletedArtist = ArtistInfo::find($artist);
 
         $deletedArtist->delete();

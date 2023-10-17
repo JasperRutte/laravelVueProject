@@ -104,6 +104,7 @@ export default {
         submitArtist() {
             axios.post('/api/artistinfo/create', this.artist)
                 .then(response => {
+                    console.log(this.artist.platenmaatschappij)
                     this.errors = false
                     this.artist.naam = "";
                     this.artist.bandleden = "";

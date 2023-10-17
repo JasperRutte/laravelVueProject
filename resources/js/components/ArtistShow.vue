@@ -1,11 +1,11 @@
 <template>
-    <div v-if="hasLoaded">
+    <div v-if="hasLoaded" id="center">
         <h1>{{artist.naam}}</h1>
         <p>genre: {{artist.genre}}</p>
         <p>bandleden: {{artist.bandleden}}</p>
 
-        <router-link class="btn btn-success" :to="'../ArtistEdit/'+ artist.id">Edit</router-link>
-        <button class="btn btn-danger" @click="removeArtist">delete</button>
+        <router-link class="btn btn-success col-6" :to="'../ArtistEdit/'+ artist.id">Edit</router-link>
+        <button class="btn btn-danger col-6" @click="removeArtist">delete</button>
         <router-view></router-view>
 
     </div>

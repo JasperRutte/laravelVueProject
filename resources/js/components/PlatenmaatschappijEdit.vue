@@ -1,5 +1,6 @@
 <template>
     <div id="center" class="shadow rounded">
+        <div class="alert alert-danger" v-if="errorInArtist">Er is een artiest met deze platenmaatschappij</div>
         <form v-if="hasLoaded" >
             <div v-if="errors" class="alert alert-danger" role="alert">
                 Please fill in the form and use the correct symbols
@@ -19,7 +20,8 @@ export default {
     data() {
         return{
             hasLoaded: false,
-            errors: false,
+            errorTypo: false,
+            errorInArtist: false,
         }
     },
 
@@ -43,8 +45,8 @@ export default {
                         this.$router.push('/ArtistList');
                     })
                     .catch(error => {
-                        this.errors = true
                         console.log(error)
+                        this.errorTypo = true
                     })
             }
         },
@@ -56,6 +58,7 @@ export default {
                     })
                     .catch(error => {
                         console.log(error)
+                        this.errorInArtist = true
                     })
             }
         }

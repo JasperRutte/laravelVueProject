@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ArtistInfo;
 use App\Models\Platenmaatschappijen;
+use http\Env\Response;
 use Illuminate\Http\Request;
 
 class PlatenmatschappijenController extends Controller
@@ -47,13 +48,15 @@ class PlatenmatschappijenController extends Controller
 
     public function destroy($platenmaatschappij)
     {
-        $test = Platenmaatschappijen::find($platenmaatschappij);
-//        dd($test->naam);
+        $recordLabel = Platenmaatschappijen::find($platenmaatschappij);
 
-        $ttest = ArtistInfo::where('platenmaatschappij', $test->naam)->exists();
-        if (!$ttest){
+        $recordLabelName = ArtistInfo::where('platenmaatschappij', $recordLabel->naam)->exists();
+        if (!$recordLabelName){
             $deletedPlatenmaatschappij = Platenmaatschappijen::find($platenmaatschappij);
             $deletedPlatenmaatschappij->delete();
+        } else {
+            $errorMessage = "There is a artist with this record label";
+            return response()->json(['error' => $errorMessage], 422);
         }
     }
 }

@@ -10,11 +10,11 @@ class Platenmaatschappijen extends Model
 {
     use HasFactory;
 
-    protected $table = "platenmaatschapijen";
+    protected $table = "platenmaatschappijen";
     protected $fillable = ["id", "platenmaatschappijen"];
-//
-//    public function allArtists(): HasMany
-//    {
-//        return $this->hasMany(ArtistInfo::class);
-//    }
+
+    public function allArtists(): HasMany
+    {
+        return $this->hasMany(ArtistInfo::class);
+    }
 }

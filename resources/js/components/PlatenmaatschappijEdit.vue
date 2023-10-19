@@ -5,7 +5,7 @@
             <div v-if="errors" class="alert alert-danger" role="alert">
                 Please fill in the form and use the correct symbols
             </div>
-            <input type="text" name="naam" v-model="platenmaatschappij.naam">
+            <input type="text" name="naam" v-model="platenmaatschappij.platenmaatschappijen">
         </form>
         <br><button class="btn btn-success col-6" @click="UpdatePlatenmaatschappij">Update</button>
         <button class="btn btn-danger col-6" @click="deletePlatenmaatschappij">delete</button>

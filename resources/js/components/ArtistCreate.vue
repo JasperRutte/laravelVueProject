@@ -12,14 +12,14 @@
             <h1 class="display">Maak een artiest aan</h1>
 
             <label ref="form" for="naam">Naam</label>
-            <input v-model="artist.naam" type="text" id="naam" class="form-control" name="naam">
+            <input v-model="artist.naam" type="text" id="naam" class="form-con trol" name="naam">
             <br>
             <label for="bandleden">Bandleden</label>
             <textarea v-model="artist.bandleden" type="text" id="naam" class="form-control" name="naam"></textarea>
             <br>
             <label for="platenmaatschappij">Platenmaatschappij</label>
             <select v-model="artist.platenmaatschappij"  class="form-select">
-                <option v-for="platenmaatschappij in platenmaatschappijen" :key="platenmaatschappij">{{platenmaatschappij.naam}}</option>
+                <option v-for="platenmaatschappij in platenmaatschappij" :key="platenmaatschappij">{{platenmaatschappij.naam}}</option>
             </select>
             <br>
 

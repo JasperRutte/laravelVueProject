@@ -17,8 +17,8 @@ return new class extends Migration
             $table->text("naam");
             $table->text("bandleden");
             $table->text("genre");
-            $table->string("platenmaatschappij");
-            $table->foreign("platenmaatschappij")->references("platenmaatschappijen")->on("platenmaatschappijen");
+            $table->unsignedBigInteger("platenmaatschappij_id");
+            $table->foreign("platenmaatschappij_id")->references("id")->on("platenmaatschappijen");
         });
     }
 

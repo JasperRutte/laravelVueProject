@@ -11,7 +11,7 @@ class Platenmaatschappijen extends Model
     use HasFactory;
 
     protected $table = "platenmaatschappijen";
-    protected $fillable = ["id", "platenmaatschappijen"];
+    protected $fillable = ["id", "naam"];
 
     public function allArtists(): HasMany
     {

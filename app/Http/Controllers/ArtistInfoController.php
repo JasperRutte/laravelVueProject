@@ -9,8 +9,12 @@ use function Laravel\Prompts\alert;
 
 class ArtistInfoController extends Controller
 {
-    public function index()
+    public function test()
+    {
+        return view("welcome");
+    }
 
+    public function index()
     {
         $artist = ArtistInfo::all();
         return $artist;

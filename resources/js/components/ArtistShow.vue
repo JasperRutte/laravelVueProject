@@ -1,8 +1,10 @@
 <template>
-    <div v-if="hasLoaded" id="center">
+    <div v-if="hasLoaded" id="center" class="text-dark">
         <h1>{{artist.naam}}</h1>
         <p>genre: {{artist.genre}}</p>
         <p>bandleden: {{artist.bandleden}}</p>
+        <p>platenmaatshcappij: {{platenmaatschappijen[artist.platenmaatschappij_id-1].naam}}</p>
+
 
         <router-link class="btn btn-success col-6" :to="'../ArtistEdit/'+ artist.id">Edit</router-link>
         <button class="btn btn-danger col-6" @click="removeArtist">delete</button>
@@ -35,6 +37,13 @@ export default {
             })
             .catch(error => {
                 console.error(error);
+            });
+        axios.get('/api/platenmaatschappijen')
+            .then(response => {
+                this.platenmaatschappijen = response.data;
+            })
+            .catch(error => {
+                console.error('Error fetching items:', error);
             });
     },
     methods: {

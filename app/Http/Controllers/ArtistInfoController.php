@@ -20,7 +20,7 @@ class ArtistInfoController extends Controller
     public function create()
     {
         $platenmaatschappijen = Platenmaatschappijen::all();
-        return ['platenmaatschappijen' => $platenmaatschappijen];
+        return ['platenmaatschappij_id' => $platenmaatschappijen];
     }
 
 
@@ -30,14 +30,14 @@ class ArtistInfoController extends Controller
             'naam' => 'required|regex:/^[a-zA-Z ,]+$/u|max:255',
             'bandleden' => 'required|regex:/^[a-zA-Z ,]+$/u|max:800',
             'genre' => 'required',
-            'platenmaatschappij' => 'required'
+            'platenmaatschappij_id' => 'required'
         ]);
 
         $newArtist = new ArtistInfo;
         $newArtist->naam = $validated["naam"];
         $newArtist->bandleden = $validated["bandleden"];
         $newArtist->genre = $validated["genre"];
-        $newArtist->platenmaatschappij = $validated['platenmaatschappij'];
+        $newArtist->platenmaatschappij_id = $validated['platenmaatschappij_id'];
 
         $newArtist->save();;
     }
@@ -64,14 +64,14 @@ class ArtistInfoController extends Controller
             'naam' => 'required|regex:/^[a-zA-Z , .]+$/u|max:255',
             'bandleden' => 'required|regex:/^[a-zA-Z , .]+$/u|max:800',
             'genre' => 'required',
-            'platenmaatschappij' => 'required'
+            'platenmaatschappij_id' => 'required'
         ]);
 
         $upDatedArtist = ArtistInfo::where("id", $request->id)->first();
         $upDatedArtist->naam = $request->naam;
         $upDatedArtist->bandleden = $request->bandleden;
         $upDatedArtist->genre = $request->genre;
-        $upDatedArtist->platenmaatschappij = $request->platenmaatschappij;
+        $upDatedArtist->platenmaatschappij_id = $request->platenmaatschappij_id;
         $upDatedArtist->save();
     }
 

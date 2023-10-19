@@ -18,8 +18,8 @@
             <textarea v-model="artist.bandleden" type="text" id="naam" class="form-control" name="naam"></textarea>
             <br>
             <label for="platenmaatschappij">Platenmaatschappij</label>
-            <select v-model="artist.platenmaatschappij"  class="form-select">
-                <option v-for="platenmaatschappij in platenmaatschappij" :key="platenmaatschappij">{{platenmaatschappij.naam}}</option>
+            <select v-model="artist.platenmaatschappij_id"  class="form-select">
+                <option v-for="platenmaatschappij in platenmaatschappijen" :key="platenmaatschappij" :value="platenmaatschappij.id">{{platenmaatschappij.naam}}</option>
             </select>
             <br>
 
@@ -83,7 +83,7 @@ export default {
                 naam: "",
                 bandleden: "",
                 genre: "",
-                platenmaatschappij:""
+                platenmaatschappij_id:""
             },
             platenmaatschappijen: [],
             errors: false,

@@ -14,16 +14,16 @@ class ArtistInfoController extends Controller
         return view("welcome");
     }
 
+
     public function index()
     {
-
         $artist = ArtistInfo::all();
         foreach($artist as &$value){
             $value["platenmaatschappij"] = $value->platenmaatschappijen;
         }
         return $artist;
-
     }
+
 
     public function create()
     {
@@ -40,7 +40,6 @@ class ArtistInfoController extends Controller
             'genre' => 'required',
             'platenmaatschappij_id' => 'required'
         ]);
-
         $newArtist = new ArtistInfo;
         $newArtist->naam = $validated["naam"];
         $newArtist->bandleden = $validated["bandleden"];
@@ -53,13 +52,10 @@ class ArtistInfoController extends Controller
 
     public function show($id)
     {
-        $item = ArtistInfo::find($id);
-        $test1 = $item['platenmaatschappij_id'];
-        $test = Platenmaatschappijen::find($test1);
-        return [
-            "item"=>$item,
-          "platenmaatschappij"=>$test
-        ];
+        $artist = ArtistInfo::find($id);
+        $platenmaatschappijId = $artist['platenmaatschappij_id'];
+        $platenmaatschappij = Platenmaatschappijen::find($platenmaatschappijId);
+        return ["artist"=>$artist, "platenmaatschappij"=>$platenmaatschappij];
     }
 
 

@@ -32,7 +32,7 @@ export default {
     mounted() {
         axios.get(`/api/artistinfo/`+this.$route.params.id)
             .then(response => {
-                this.artist = response.data.item;
+                this.artist = response.data.artist;
                 this.platenmaatschappij = response.data.platenmaatschappij;
                 this.hasLoaded = true
             })

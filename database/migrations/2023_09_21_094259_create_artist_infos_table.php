@@ -21,7 +21,6 @@ return new class extends Migration
             $table->foreign("platenmaatschappij_id")->references("id")->on("platenmaatschappijen");
         });
     }
-
     /**
      * Reverse the migrations.
      */

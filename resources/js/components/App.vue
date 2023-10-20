@@ -73,13 +73,13 @@ label {
 
 button {
     margin-bottom: 10px;
-    width: 10%;
+    width: 180px;
     padding: 10px;
 }
 
 #center {
     margin: auto;
-    width: 20%;
+    width: 360px;
     border: 3px solid white;
     background-color: white;
     padding: 10px;

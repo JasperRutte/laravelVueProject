@@ -104,12 +104,7 @@ export default {
         submitArtist() {
             axios.post('/api/artistinfo/create', this.artist)
                 .then(response => {
-                    console.log(this.artist.platenmaatschappij)
                     this.errors = false
-                    this.artist.naam = "";
-                    this.artist.bandleden = "";
-                    this.artist.genre = "";
-                    this.artist.platenmaatschappij = "";
                 })
                 .catch(error => {
                     this.errors = true;
@@ -119,12 +114,10 @@ export default {
         submitPlatenmaatschappij(){
             axios.post('/api/platenmaatschappijen/create', this.platenmaatschappij)
                 .then(response => {
-                    this.errors = false
-                    this.platenmaatschappij.naam = "";
+                    location.reload() ;
                 })
                 .catch(error => {
                     this.errors = true;
-                    alert("error")
                     console.log(error.response.data.message)
                 })
         },

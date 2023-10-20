@@ -16,7 +16,11 @@ class ArtistInfoController extends Controller
 
     public function index()
     {
+
         $artist = ArtistInfo::all();
+        foreach($artist as &$value){
+            $value["platenmaatschappij"] = $value->platenmaatschappijen;
+        }
         return $artist;
 
     }
@@ -50,7 +54,12 @@ class ArtistInfoController extends Controller
     public function show($id)
     {
         $item = ArtistInfo::find($id);
-        return response()->json(['item' => $item]);
+        $test1 = $item['platenmaatschappij_id'];
+        $test = Platenmaatschappijen::find($test1);
+        return [
+            "item"=>$item,
+          "platenmaatschappij"=>$test
+        ];
     }
 
 

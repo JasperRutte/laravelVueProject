@@ -19,7 +19,7 @@
                 <td><router-link :to="'ArtistShow/' + artist.id">{{artist.naam}}</router-link></td>
                 <td>{{artist.bandleden}}</td>
                 <td>{{artist.genre}}</td>
-                <td>{{platenmaatschappijen[artist.platenmaatschappij_id-1].naam}}</td>
+                <td>{{artist.platenmaatschappij.naam}}</td>
                 <td>{{artist.id}}</td>
             </tr>
             </tbody>

@@ -1,9 +1,10 @@
 <template>
-    <div v-if="hasLoaded" id="center" class="text-dark">
+    <div id="center" class="text-dark">
         <h1>{{artist.naam}}</h1>
         <p>genre: {{artist.genre}}</p>
         <p>bandleden: {{artist.bandleden}}</p>
-        <p>platenmaatshcappij: {{platenmaatschappijen[artist.platenmaatschappij_id-1].naam}}</p>
+        <p>platenmaatschappij: {{platenmaatschappij.naam}}</p>
+
 
 
         <router-link class="btn btn-success col-6" :to="'../ArtistEdit/'+ artist.id">Edit</router-link>
@@ -22,28 +23,21 @@ export default {
     data() {
         return {
             hasLoaded: false,
-            artist: null,
-            errors: null
+            artist: [],
+            platenmaatschappij: [],
+            errors: false
         }
+
     },
     mounted() {
-        console.log(this.$route)
         axios.get(`/api/artistinfo/`+this.$route.params.id)
             .then(response => {
                 this.artist = response.data.item;
-                console.log(this.artist)
-                console.log(response.data);
+                this.platenmaatschappij = response.data.platenmaatschappij;
                 this.hasLoaded = true
             })
             .catch(error => {
                 console.error(error);
-            });
-        axios.get('/api/platenmaatschappijen')
-            .then(response => {
-                this.platenmaatschappijen = response.data;
-            })
-            .catch(error => {
-                console.error('Error fetching items:', error);
             });
     },
     methods: {
